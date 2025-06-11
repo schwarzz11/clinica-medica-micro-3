@@ -1,0 +1,61 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <parent>
+        <groupId>br.edu.imepac</groupId>
+        <artifactId>clinica-medica</artifactId>
+        <version>1.0-SNAPSHOT</version>
+    </parent>
+
+    <artifactId>clinica-medica-comum</artifactId>
+    <packaging>jar</packaging>
+
+    <name>clinica-medica-comum</name>
+    <url>http://maven.apache.org</url>
+
+    <properties>
+        <java.version>17</java.version> <!-- Spring Boot 3+ exige Java 17 ou superior -->
+        <spring.boot.version>3.1.0</spring.boot.version>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    </properties>
+
+    <dependencies>
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+        </dependency>
+        <!-- spring-boot-starter-data-jpa -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-data-jpa</artifactId>
+        </dependency>
+        <!-- Driver JDBC mysql -->
+        <dependency>
+            <groupId>mysql</groupId>
+            <artifactId>mysql-connector-java</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.modelmapper</groupId>
+            <artifactId>modelmapper</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>jakarta.validation</groupId>
+            <artifactId>jakarta.validation-api</artifactId>
+        </dependency>
+
+    </dependencies>
+<!--    <build>-->
+<!--        <plugins>-->
+<!--            &lt;!&ndash; Plugin para compilar o código Java &ndash;&gt;-->
+<!--            <plugin>-->
+<!--                <groupId>org.apache.maven.plugins</groupId>-->
+<!--                <artifactId>maven-compiler-plugin</artifactId>-->
+<!--                <version>3.13.0</version> &lt;!&ndash; Use a versão mais recente &ndash;&gt;-->
+<!--                <configuration>-->
+<!--                    <source>${java.version}</source> &lt;!&ndash; Versão do Java utilizada no projeto &ndash;&gt;-->
+<!--                    <target>${java.version}</target> &lt;!&ndash; Versão do bytecode gerado &ndash;&gt;-->
+<!--                </configuration>-->
+<!--            </plugin>-->
+<!--        </plugins>-->
+<!--    </build>-->
+</project>

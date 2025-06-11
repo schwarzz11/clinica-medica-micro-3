@@ -1,0 +1,6 @@
+curl --location --request PUT 'http://localhost:8080/clinica-medica-administrativo/especialidades/1' \
+--header 'Content-Type: application/json' \
+--data '{
+    "id":11,
+    "nome":"Fulano02-1"
+}'

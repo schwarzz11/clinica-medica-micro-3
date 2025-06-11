@@ -1,0 +1,198 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="bf63e5a7-e824-4912-afcd-e78d3351688e" name="Changes" comment="" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ComposerSettings">
+    <execution />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Enum" />
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="PhpWorkspaceProjectConfiguration" interpreter_name="C:\wamp64\bin\php\php7.4.33\php.exe" />
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 8
+}</component>
+  <component name="ProjectId" id="2wmxrnPqvQL4VZun66KrAq2LuwL" />
+  <component name="ProjectLevelVcsManager">
+    <ConfirmationsSetting value="1" id="Add" />
+  </component>
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RequestMappingsPanelOrder0": "0",
+    "RequestMappingsPanelOrder1": "1",
+    "RequestMappingsPanelWidth0": "75",
+    "RequestMappingsPanelWidth1": "75",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "git-widget-placeholder": "master",
+    "jdk.selected.JAVA_MODULE": "17",
+    "last_opened_file_path": "C:/Users/ehf_v/projetos/clinica-medica/clinica-medica-administrativo/src/main/resources/application-local.properties",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "project.structure.last.edited": "SDKs",
+    "project.structure.proportion": "0.15",
+    "project.structure.side.proportion": "0.47586206",
+    "settings.editor.selected.configurable": "File.Encoding",
+    "vue.rearranger.settings.migration": "true"
+  }
+}]]></component>
+  <component name="RecentsManager">
+    <key name="CreateClassDialog.RecentsKey">
+      <recent name="br.edu.imepac.comum.exceptions" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\ehf_v\projetos\clinica-medica\clinica-medica-administrativo\src\main\resources\db\migration" />
+      <recent name="C:\Users\ehf_v\projetos\clinica-medica\clinica-medica-administrativo\src\main\resources" />
+      <recent name="C:\Users\ehf_v\projetos\clinica-medica\collections\especialidades" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\ehf_v\projetos\clinica-medica\clinica-medica-administrativo\src\main\resources\database" />
+    </key>
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="br.edu.imepac.comum.repositories" />
+    </key>
+  </component>
+  <component name="RunAnythingCache">
+    <option name="myCommands">
+      <command value="mvn clean install -U" />
+      <command value="mvn clean install -U -X" />
+    </option>
+  </component>
+  <component name="RunManager" selected="Spring Boot.ClinicaMedicaAdministrativoApp">
+    <configuration name="ClinicaMedicaAdministrativoApp" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" temporary="true" nameIsGenerated="true">
+      <module name="clinica-medica-administrativo" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="br.edu.imepac.administrativo.ClinicaMedicaAdministrativoApp" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="br.edu.imepac.administrativo.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <extension name="net.ashald.envfile">
+        <option name="IS_ENABLED" value="false" />
+        <option name="IS_SUBST" value="false" />
+        <option name="IS_PATH_MACRO_SUPPORTED" value="false" />
+        <option name="IS_IGNORE_MISSING_FILES" value="false" />
+        <option name="IS_ENABLE_EXPERIMENTAL_INTEGRATIONS" value="false" />
+        <ENTRIES>
+          <ENTRY IS_ENABLED="true" PARSER="runconfig" IS_EXECUTABLE="false" />
+        </ENTRIES>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="containers: Compose Deployment" type="docker-deploy" factoryName="docker-compose.yml" temporary="true" server-name="Docker">
+      <deployment type="docker-compose.yml">
+        <settings>
+          <option name="sourceFilePath" value="containers/docker-compose.yml" />
+        </settings>
+      </deployment>
+      <method v="2" />
+    </configuration>
+    <list>
+      <item itemvalue="Docker.containers: Compose Deployment" />
+      <item itemvalue="Spring Boot.ClinicaMedicaAdministrativoApp" />
+    </list>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Spring Boot.ClinicaMedicaAdministrativoApp" />
+        <item itemvalue="Docker.containers: Compose Deployment" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="bf63e5a7-e824-4912-afcd-e78d3351688e" name="Changes" comment="" />
+      <created>1746660754985</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1746660754985</updated>
+      <workItem from="1746660755885" duration="1591000" />
+      <workItem from="1746662393055" duration="1020000" />
+      <workItem from="1746663456014" duration="3475000" />
+      <workItem from="1746711671789" duration="639000" />
+      <workItem from="1747095482121" duration="1701000" />
+      <workItem from="1747174603799" duration="205000" />
+      <workItem from="1747261106694" duration="480000" />
+      <workItem from="1747261868202" duration="11512000" />
+      <workItem from="1747699449621" duration="7750000" />
+      <workItem from="1747845141452" duration="565000" />
+      <workItem from="1747845749950" duration="17349000" />
+      <workItem from="1747952296688" duration="19000" />
+      <workItem from="1747959412077" duration="396000" />
+      <workItem from="1748304507742" duration="2773000" />
+      <workItem from="1748456519431" duration="883000" />
+      <workItem from="1748470769945" duration="5386000" />
+      <workItem from="1748566158469" duration="972000" />
+      <workItem from="1749593250485" duration="3000" />
+      <workItem from="1749645765979" duration="348000" />
+      <workItem from="1749647962314" duration="18705000" />
+      <workItem from="1749672810941" duration="1393000" />
+      <workItem from="1749674240450" duration="3610000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-field">
+          <url>file://$PROJECT_DIR$/clinica-medica-administrativo/src/main/java/br/edu/imepac/administrativo/controllers/EspecialdadeController.java</url>
+          <line>15</line>
+          <properties field="especialidadeService" class="br.edu.imepac.administrativo.controllers.EspecialdadeController" />
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/clinica-medica-administrativo/src/main/java/br/edu/imepac/administrativo/controllers/EspecialdadeController.java</url>
+          <line>18</line>
+          <option name="timeStamp" value="2" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/clinica-medica-comum/src/main/java/br/edu/imepac/comum/services/EspecialidadeService.java</url>
+          <line>24</line>
+          <option name="timeStamp" value="3" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/clinica-medica-administrativo/src/main/java/br/edu/imepac/administrativo/controllers/EspecialdadeController.java</url>
+          <line>24</line>
+          <option name="timeStamp" value="4" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
+  </component>
+  <component name="XSLT-Support.FileAssociations.UIState">
+    <expand />
+    <select />
+  </component>
+</project>
