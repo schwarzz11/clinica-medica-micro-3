@@ -51,8 +51,8 @@ public class PerfilService {
         return perfilRepository.findAll();
     }
 
-    public boolean verificarAutorizacao(String usuario, String senha, String url, String metodo) {
-        log.info("Verificando autorização para usuário: {}, URL: {}, Método: {}", usuario, url, metodo);
+    public boolean verificarAutorizacao(String usuario, String senha, String acao) {
+        log.info("Verificando autorização para usuário: {}, senha: {}, acao: {}", usuario, senha, acao);
         return true;
     }
 }
