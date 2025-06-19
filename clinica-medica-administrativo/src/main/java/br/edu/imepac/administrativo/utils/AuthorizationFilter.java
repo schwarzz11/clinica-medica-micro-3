@@ -12,7 +12,7 @@ import org.springframework.web.filter.OncePerRequestFilter;
 import java.io.IOException;
 import java.util.Optional;
 
-@Component
+//@Component
 public class AuthorizationFilter extends OncePerRequestFilter {
 
     // **Injeção de Dependência**: The `PerfilService` is injected to verify user authorization.
