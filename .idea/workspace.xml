@@ -6,12 +6,13 @@
   <component name="ChangeListManager">
     <list default="true" id="bf63e5a7-e824-4912-afcd-e78d3351688e" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/clinica-medica-administrativo/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/clinica-medica-administrativo/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/clinica-medica-administrativo/src/main/java/br/edu/imepac/administrativo/ClinicaMedicaAdministrativoApp.java" beforeDir="false" afterPath="$PROJECT_DIR$/clinica-medica-administrativo/src/main/java/br/edu/imepac/administrativo/ClinicaMedicaAdministrativoApp.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/clinica-medica-administrativo/src/main/java/br/edu/imepac/administrativo/controllers/EspecialdadeController.java" beforeDir="false" afterPath="$PROJECT_DIR$/clinica-medica-administrativo/src/main/java/br/edu/imepac/administrativo/controllers/EspecialidadeController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/clinica-medica-administrativo/src/main/java/br/edu/imepac/administrativo/utils/AuthorizationFilter.java" beforeDir="false" afterPath="$PROJECT_DIR$/clinica-medica-administrativo/src/main/java/br/edu/imepac/administrativo/utils/AuthorizationFilter.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/clinica-medica-administrativo/src/main/resources/application-local.properties" beforeDir="false" afterPath="$PROJECT_DIR$/clinica-medica-administrativo/src/main/resources/application-local.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/clinica-medica-administrativo/src/main/resources/db/schema.sql" beforeDir="false" afterPath="$PROJECT_DIR$/clinica-medica-administrativo/src/main/resources/db/schema.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/clinica-medica-agendamento/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/clinica-medica-agendamento/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/clinica-medica-agendamento/src/test/java/org/example/AppTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/clinica-medica-atendimento/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/clinica-medica-atendimento/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/clinica-medica-atendimento/src/test/java/org/example/AppTest.java" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -25,6 +26,7 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="Enum" />
+        <option value="Interface" />
         <option value="Class" />
       </list>
     </option>
@@ -40,10 +42,13 @@
 }</component>
   <component name="GithubPullRequestsUISettings">{
   &quot;selectedUrlAndAccountId&quot;: {
-    &quot;url&quot;: &quot;https://github.com/MyProjectsImepac/clinica-medica-micro.git&quot;,
+    &quot;url&quot;: &quot;https://github.com/schwarzz11/clinica-medica-micro-3.git&quot;,
     &quot;accountId&quot;: &quot;a5417c70-b254-484a-bfa6-885b332cc7e2&quot;
   }
 }</component>
+  <component name="HighlightingSettingsPerFile">
+    <setting file="jar://$MAVEN_REPOSITORY$/org/springframework/spring-core/6.0.9/spring-core-6.0.9.jar!/org/springframework/util/ReflectionUtils.class" root0="SKIP_INSPECTION" />
+  </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
   </component>
@@ -62,10 +67,16 @@
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
     "Application.ClinicaMedicaAdministrativoApp.executor": "Run",
+    "Application.ClinicaMedicaAgendamentoApp.executor": "Run",
+    "Application.ClinicaMedicaAtendimentoApp.executor": "Run",
     "Docker.containers.mysql: Compose Deployment.executor": "Run",
     "Maven.clinica-medica [clean,install,-U].executor": "Run",
     "Maven.clinica-medica [clean].executor": "Run",
     "Maven.clinica-medica [install].executor": "Run",
+    "Maven.clinica-medica-agendamento [clean].executor": "Run",
+    "Maven.clinica-medica-agendamento [compile].executor": "Run",
+    "Maven.clinica-medica-agendamento [install].executor": "Run",
+    "Maven.clinica-medica-agendamento [package].executor": "Run",
     "Maven.clinica-medica-comum [clean].executor": "Run",
     "Maven.clinica-medica-comum [install].executor": "Run",
     "RequestMappingsPanelOrder0": "0",
@@ -79,16 +90,16 @@
     "git-widget-placeholder": "master",
     "jdk.selected.JAVA_MODULE": "17",
     "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "C:/Users/ehf_v/projetos/clinica-medica/clinica-medica-administrativo/src/main/resources/application-local.properties",
+    "last_opened_file_path": "C:/Users/lucel/OneDrive/Área de Trabalho/faculdade/aulas everton -  3ºPeriodo/codigos/clinica-medica-micro/clinica-medica-agendamento/src/main",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
     "node.js.selected.package.tslint": "(autodetect)",
     "nodejs_package_manager_path": "npm",
-    "project.structure.last.edited": "Artifacts",
+    "project.structure.last.edited": "Modules",
     "project.structure.proportion": "0.15",
     "project.structure.side.proportion": "0.47586206",
-    "settings.editor.selected.configurable": "preferences.pluginManager",
+    "settings.editor.selected.configurable": "project.propVCSSupport.Mappings",
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
@@ -97,9 +108,11 @@
       <recent name="br.edu.imepac.comum.exceptions" />
     </key>
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\lucel\OneDrive\Área de Trabalho\faculdade\aulas everton -  3ºPeriodo\codigos\clinica-medica-micro\clinica-medica-agendamento\src\main" />
+      <recent name="C:\Users\lucel\OneDrive\Área de Trabalho\faculdade\aulas everton -  3ºPeriodo\codigos\clinica-medica-micro\clinica-medica-agendamento\src\main\java" />
+      <recent name="C:\Users\lucel\OneDrive\Área de Trabalho\faculdade\aulas everton -  3ºPeriodo\codigos\clinica-medica-micro\clinica-medica-agendamento\src\main\java\br\edu\imepac\agendamento" />
       <recent name="C:\Users\ehf_v\projetos\clinica-medica\clinica-medica-administrativo\src\main\resources\db\migration" />
       <recent name="C:\Users\ehf_v\projetos\clinica-medica\clinica-medica-administrativo\src\main\resources" />
-      <recent name="C:\Users\ehf_v\projetos\clinica-medica\collections\especialidades" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\ehf_v\projetos\clinica-medica\clinica-medica-administrativo\src\main\resources\database" />
@@ -112,9 +125,10 @@
     <option name="myCommands">
       <command value="mvn clean install -U -X" />
       <command value="mvn clean install -U" />
+      <command value="import lombok.Data; import java.time.LocalDate;" />
     </option>
   </component>
-  <component name="RunManager" selected="Application.ClinicaMedicaAdministrativoApp">
+  <component name="RunManager" selected="Application.ClinicaMedicaAtendimentoApp">
     <configuration name="ClinicaMedicaAdministrativoApp" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="br.edu.imepac.administrativo.ClinicaMedicaAdministrativoApp" />
       <module name="clinica-medica-administrativo" />
@@ -128,18 +142,28 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="EspecialidadeServiceTest.testAdicionarEspecialidade" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="clinica-medica-comum" />
+    <configuration name="ClinicaMedicaAgendamentoApp" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="br.edu.imepac.agendamento.ClinicaMedicaAgendamentoApp" />
+      <module name="clinica-medica-agendamento" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="br.edu.imepac.comum.services.*" />
+          <option name="PATTERN" value="br.edu.imepac.agendamento.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="PACKAGE_NAME" value="br.edu.imepac.comum.services" />
-      <option name="MAIN_CLASS_NAME" value="br.edu.imepac.comum.services.EspecialidadeServiceTest" />
-      <option name="METHOD_NAME" value="testAdicionarEspecialidade" />
-      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="ClinicaMedicaAtendimentoApp" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="br.edu.imepac.atendimento.utils.ClinicaMedicaAtendimentoApp" />
+      <module name="clinica-medica-atendimento" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="br.edu.imepac.atendimento.utils.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -147,19 +171,6 @@
     <configuration default="true" type="docker-deploy" factoryName="docker-compose.yml" temporary="true">
       <deployment type="docker-compose.yml">
         <settings />
-      </deployment>
-      <method v="2" />
-    </configuration>
-    <configuration name="clinica-administrativo.mysql: Compose Deployment" type="docker-deploy" factoryName="docker-compose.yml" temporary="true" server-name="Docker">
-      <deployment type="docker-compose.yml">
-        <settings>
-          <option name="services">
-            <list>
-              <option value="mysql" />
-            </list>
-          </option>
-          <option name="sourceFilePath" value="D:/Imepac/BACK/projeto/clinica-medica/clinica-administrativo/docker-compose.yml" />
-        </settings>
       </deployment>
       <method v="2" />
     </configuration>
@@ -185,19 +196,19 @@
       <method v="2" />
     </configuration>
     <list>
+      <item itemvalue="Application.ClinicaMedicaAgendamentoApp" />
+      <item itemvalue="Application.ClinicaMedicaAtendimentoApp" />
       <item itemvalue="Application.ClinicaMedicaAdministrativoApp" />
       <item itemvalue="Docker.containers.mysql: Compose Deployment" />
-      <item itemvalue="Docker.clinica-administrativo.mysql: Compose Deployment" />
       <item itemvalue="Docker.containers: Compose Deployment" />
-      <item itemvalue="JUnit.EspecialidadeServiceTest.testAdicionarEspecialidade" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.ClinicaMedicaAtendimentoApp" />
+        <item itemvalue="Application.ClinicaMedicaAgendamentoApp" />
         <item itemvalue="Application.ClinicaMedicaAdministrativoApp" />
         <item itemvalue="Docker.containers.mysql: Compose Deployment" />
         <item itemvalue="Docker.containers: Compose Deployment" />
-        <item itemvalue="Docker.clinica-administrativo.mysql: Compose Deployment" />
-        <item itemvalue="JUnit.EspecialidadeServiceTest.testAdicionarEspecialidade" />
       </list>
     </recent_temporary>
   </component>
