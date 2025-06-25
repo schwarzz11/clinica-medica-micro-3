@@ -1,0 +1,11 @@
+# Adapte o JSON para corresponder ao seu FuncionarioRequest
+curl --location --request POST 'http://localhost:8080/funcionarios' \
+--header 'Content-Type: application/json' \
+--data-raw '{
+    "nome": "Dr. Ricardo",
+    "cpf": "98765432109",
+    "email": "dr.ricardo@clinicamedica.com",
+    "tipoFuncionario": "MEDICO",
+    "usuario": "ricardo.med",
+    "senha": "senhaSegura123"
+}'

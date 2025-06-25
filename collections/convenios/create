@@ -1,0 +1,8 @@
+curl --location --request POST 'http://localhost:8080/convenios' \
+--header 'Content-Type: application/json' \
+--data-raw '{
+    "nomeEmpresa": "Saúde Total",
+    "cnpj": "11222333000144",
+    "nomeContato": "Carlos Silva",
+    "telefone": "34999998888"
+}'

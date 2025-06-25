@@ -1,0 +1,12 @@
+curl --location --request PUT 'http://localhost:8080/pacientes/1' \
+--header 'Content-Type: application/json' \
+--data-raw '{
+    "nome": "Ana Luiza de Souza",
+    "cpf": "12345678901",
+    "sexo": "F",
+    "dataNascimento": "1990-05-15",
+    "telefone": "34988776655",
+    "email": "ana.luiza.souza@email.com",
+    "possuiConvenio": true,
+    "convenioId": 1
+}'

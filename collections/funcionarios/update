@@ -1,0 +1,7 @@
+curl --location --request PUT 'http://localhost:8080/funcionarios/1' \
+--header 'Content-Type: application/json' \
+--data-raw '{
+    "nome": "Dr. Ricardo Almeida",
+    "email": "ricardo.almeida@clinicamedica.com",
+    "usuario": "ricardo.almeida"
+}'

@@ -1,0 +1,8 @@
+curl --location --request POST 'http://localhost:8082/prontuarios' \
+--header 'Content-Type: application/json' \
+--data-raw '{
+    "consultaId": 1,
+    "receituario": "Dipirona 500mg - 1 comprimido de 6/6 horas.",
+    "exames": "Hemograma completo.",
+    "observacoes": "Paciente orientado, febril ao toque."
+}'

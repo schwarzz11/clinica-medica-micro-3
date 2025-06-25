@@ -1,0 +1,9 @@
+curl --location --request POST 'http://localhost:8081/consultas' \
+--header 'Content-Type: application/json' \
+--data-raw '{
+    "pacienteId": 1,
+    "medicoId": 1,
+    "dataHorario": "2025-07-10T10:30:00",
+    "sintomas": "Dor de cabeça e febre.",
+    "eRetorno": false
+}'

@@ -1,0 +1,7 @@
+curl --location --request PUT 'http://localhost:8082/prontuarios/1' \
+--header 'Content-Type: application/json' \
+--data-raw '{
+    "receituario": "Paracetamol 750mg - 1 comprimido de 8/8 horas se dor ou febre.",
+    "exames": "Hemograma completo e Raio-X do tórax.",
+    "observacoes": "Paciente retornou com tosse persistente."
+}'

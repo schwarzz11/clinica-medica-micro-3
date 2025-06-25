@@ -1,0 +1,8 @@
+curl --location --request PUT 'http://localhost:8080/convenios/1' \
+--header 'Content-Type: application/json' \
+--data-raw '{
+    "nomeEmpresa": "Saúde Total Brasil",
+    "cnpj": "11222333000144",
+    "nomeContato": "Carlos Andrade Silva",
+    "telefone": "34999998877"
+}'
