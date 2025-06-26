@@ -6,23 +6,22 @@
   <component name="ChangeListManager">
     <list default="true" id="bf63e5a7-e824-4912-afcd-e78d3351688e" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/clinica-medica-administrativo/src/main/java/br/edu/imepac/administrativo/controllers/PerfilController.java" beforeDir="false" afterPath="$PROJECT_DIR$/clinica-medica-administrativo/src/main/java/br/edu/imepac/administrativo/controllers/PerfilController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/clinica-medica-administrativo/src/main/java/br/edu/imepac/administrativo/utils/AuthorizationFilter.java" beforeDir="false" afterPath="$PROJECT_DIR$/clinica-medica-administrativo/src/main/java/br/edu/imepac/administrativo/utils/AuthorizationFilter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/clinica-medica-administrativo/src/main/java/br/edu/imepac/administrativo/config/ConfigModelMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/clinica-medica-administrativo/src/main/java/br/edu/imepac/administrativo/config/ConfigModelMapper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/clinica-medica-administrativo/src/main/java/br/edu/imepac/administrativo/controllers/EspecialidadeController.java" beforeDir="false" afterPath="$PROJECT_DIR$/clinica-medica-administrativo/src/main/java/br/edu/imepac/administrativo/controllers/EspecialidadeController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/clinica-medica-administrativo/src/main/java/br/edu/imepac/administrativo/controllers/FuncionarioController.java" beforeDir="false" afterPath="$PROJECT_DIR$/clinica-medica-administrativo/src/main/java/br/edu/imepac/administrativo/controllers/FuncionarioController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/clinica-medica-administrativo/src/main/java/br/edu/imepac/administrativo/controllers/PacienteController.java" beforeDir="false" afterPath="$PROJECT_DIR$/clinica-medica-administrativo/src/main/java/br/edu/imepac/administrativo/controllers/PacienteController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/clinica-medica-administrativo/src/main/java/br/edu/imepac/administrativo/exception/ClinicaMedicaHandleExceptions.java" beforeDir="false" afterPath="$PROJECT_DIR$/clinica-medica-administrativo/src/main/java/br/edu/imepac/administrativo/exception/ClinicaMedicaHandleExceptions.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/clinica-medica-administrativo/src/main/resources/application-local.properties" beforeDir="false" afterPath="$PROJECT_DIR$/clinica-medica-administrativo/src/main/resources/application-local.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/clinica-medica-agendamento/src/main/java/br/edu/imepac/agendamento/controllers/ProntuarioController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/clinica-medica-agendamento/src/main/java/br/edu/imepac/agendamento/controllers/ConsultaController.java" beforeDir="false" afterPath="$PROJECT_DIR$/clinica-medica-agendamento/src/main/java/br/edu/imepac/agendamento/controllers/ConsultaController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/clinica-medica-agendamento/src/main/resources/application-local.properties" beforeDir="false" afterPath="$PROJECT_DIR$/clinica-medica-agendamento/src/main/resources/application-local.properties" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/clinica-medica-atendimento/src/main/resources/application-local.properties" beforeDir="false" afterPath="$PROJECT_DIR$/clinica-medica-atendimento/src/main/resources/application-local.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/clinica-medica-comum/src/main/java/br/edu/imepac/comum/dtos/perfil/PerfilDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/clinica-medica-comum/src/main/java/br/edu/imepac/comum/dtos/perfil/PerfilDto.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/clinica-medica-comum/src/main/java/br/edu/imepac/comum/dtos/perfil/PerfilRequest.java" beforeDir="false" afterPath="$PROJECT_DIR$/clinica-medica-comum/src/main/java/br/edu/imepac/comum/dtos/perfil/PerfilRequest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/clinica-medica-comum/src/main/java/br/edu/imepac/comum/dtos/prontuario/ProntuarioDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/clinica-medica-comum/src/main/java/br/edu/imepac/comum/dtos/prontuario/ProntuarioDto.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/clinica-medica-comum/src/main/java/br/edu/imepac/comum/dtos/prontuario/ProntuarioRequest.java" beforeDir="false" afterPath="$PROJECT_DIR$/clinica-medica-comum/src/main/java/br/edu/imepac/comum/dtos/prontuario/ProntuarioRequest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/clinica-medica-comum/src/main/java/br/edu/imepac/comum/models/Funcionario.java" beforeDir="false" afterPath="$PROJECT_DIR$/clinica-medica-comum/src/main/java/br/edu/imepac/comum/models/Funcionario.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/clinica-medica-comum/src/main/java/br/edu/imepac/comum/models/Perfil.java" beforeDir="false" afterPath="$PROJECT_DIR$/clinica-medica-comum/src/main/java/br/edu/imepac/comum/models/Perfil.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/clinica-medica-comum/src/main/java/br/edu/imepac/comum/models/Prontuario.java" beforeDir="false" afterPath="$PROJECT_DIR$/clinica-medica-comum/src/main/java/br/edu/imepac/comum/models/Prontuario.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/clinica-medica-comum/src/main/java/br/edu/imepac/comum/repositories/FuncionarioRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/clinica-medica-comum/src/main/java/br/edu/imepac/comum/repositories/FuncionarioRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/clinica-medica-comum/src/main/java/br/edu/imepac/comum/services/ConvenioService.java" beforeDir="false" afterPath="$PROJECT_DIR$/clinica-medica-comum/src/main/java/br/edu/imepac/comum/services/ConvenioService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/clinica-medica-comum/src/main/java/br/edu/imepac/comum/dtos/funcionario/FuncionarioRequest.java" beforeDir="false" afterPath="$PROJECT_DIR$/clinica-medica-comum/src/main/java/br/edu/imepac/comum/dtos/funcionario/FuncionarioRequest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/clinica-medica-comum/src/main/java/br/edu/imepac/comum/models/Convenio.java" beforeDir="false" afterPath="$PROJECT_DIR$/clinica-medica-comum/src/main/java/br/edu/imepac/comum/models/Convenio.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/clinica-medica-comum/src/main/java/br/edu/imepac/comum/models/Paciente.java" beforeDir="false" afterPath="$PROJECT_DIR$/clinica-medica-comum/src/main/java/br/edu/imepac/comum/models/Paciente.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/clinica-medica-comum/src/main/java/br/edu/imepac/comum/services/ConsultaService.java" beforeDir="false" afterPath="$PROJECT_DIR$/clinica-medica-comum/src/main/java/br/edu/imepac/comum/services/ConsultaService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/clinica-medica-comum/src/main/java/br/edu/imepac/comum/services/EspecialidadeService.java" beforeDir="false" afterPath="$PROJECT_DIR$/clinica-medica-comum/src/main/java/br/edu/imepac/comum/services/EspecialidadeService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/clinica-medica-comum/src/main/java/br/edu/imepac/comum/services/FuncionarioService.java" beforeDir="false" afterPath="$PROJECT_DIR$/clinica-medica-comum/src/main/java/br/edu/imepac/comum/services/FuncionarioService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/clinica-medica-comum/src/main/java/br/edu/imepac/comum/services/PerfilService.java" beforeDir="false" afterPath="$PROJECT_DIR$/clinica-medica-comum/src/main/java/br/edu/imepac/comum/services/PerfilService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/clinica-medica-comum/src/main/java/br/edu/imepac/comum/services/PacienteService.java" beforeDir="false" afterPath="$PROJECT_DIR$/clinica-medica-comum/src/main/java/br/edu/imepac/comum/services/PacienteService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/clinica-medica-comum/src/main/java/br/edu/imepac/comum/services/ProntuarioService.java" beforeDir="false" afterPath="$PROJECT_DIR$/clinica-medica-comum/src/main/java/br/edu/imepac/comum/services/ProntuarioService.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -51,12 +50,12 @@
     &quot;assignee&quot;: &quot;schwarzz11&quot;
   }
 }</component>
-  <component name="GithubPullRequestsUISettings"><![CDATA[{
-  "selectedUrlAndAccountId": {
-    "url": "https://github.com/schwarzz11/clinica-medica-micro-3.git",
-    "accountId": "a5417c70-b254-484a-bfa6-885b332cc7e2"
+  <component name="GithubPullRequestsUISettings">{
+  &quot;selectedUrlAndAccountId&quot;: {
+    &quot;url&quot;: &quot;https://github.com/schwarzz11/clinica-medica-micro-3.git&quot;,
+    &quot;accountId&quot;: &quot;a5417c70-b254-484a-bfa6-885b332cc7e2&quot;
   }
-}]]></component>
+}</component>
   <component name="HighlightingSettingsPerFile">
     <setting file="jar://$MAVEN_REPOSITORY$/org/springframework/spring-core/6.0.9/spring-core-6.0.9.jar!/org/springframework/util/ReflectionUtils.class" root0="SKIP_INSPECTION" />
   </component>
@@ -64,6 +63,9 @@
     <option name="stateVersion" value="1" />
   </component>
   <component name="PhpWorkspaceProjectConfiguration" interpreter_name="C:\wamp64\bin\php\php7.4.33\php.exe" />
+  <component name="ProblemsViewState">
+    <option name="selectedTabId" value="CurrentFile" />
+  </component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 8
 }</component>
@@ -75,63 +77,65 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "Application.ClinicaMedicaAdministrativoApp.executor": "Run",
-    "Application.ClinicaMedicaAgendamentoApp.executor": "Run",
-    "Application.ClinicaMedicaAtendimentoApp.executor": "Run",
-    "Docker.containers.mysql: Compose Deployment.executor": "Run",
-    "Docker.containers: Compose Deployment.executor": "Run",
-    "JUnit.ConsultaServiceTest.testSaveConsulta.executor": "Run",
-    "JUnit.ConsultaServiceTest.testSaveConsulta_WhenPacienteNotFound_ShouldThrowException.executor": "Run",
-    "JUnit.ConvenioServiceTest.executor": "Run",
-    "JUnit.ConvenioServiceTest.testDeleteConvenio.executor": "Run",
-    "JUnit.ConvenioServiceTest.testFindById_WhenFound.executor": "Run",
-    "JUnit.ConvenioServiceTest.testFindById_WhenNotFound_ShouldThrowException.executor": "Run",
-    "JUnit.ConvenioServiceTest.testSaveConvenio.executor": "Run",
-    "JUnit.EspecialidadeServiceTest.executor": "Run",
-    "JUnit.EspecialidadeServiceTest.testAdicionarEspecialidade.executor": "Run",
-    "JUnit.PacienteServiceTest.executor": "Run",
-    "JUnit.PacienteServiceTest.testSavePaciente_WithConvenio.executor": "Run",
-    "JUnit.PacienteServiceTest.testSavePaciente_WithoutConvenio.executor": "Run",
-    "JUnit.PerfilServiceTest.executor": "Run",
-    "JUnit.PerfilServiceTest.testSavePerfil.executor": "Run",
-    "JUnit.ProntuarioServiceTest.executor": "Run",
-    "JUnit.ProntuarioServiceTest.testSaveProntuario.executor": "Run",
-    "Maven.clinica-medica [clean,install,-U].executor": "Run",
-    "Maven.clinica-medica [clean].executor": "Run",
-    "Maven.clinica-medica [install].executor": "Run",
-    "Maven.clinica-medica-agendamento [clean].executor": "Run",
-    "Maven.clinica-medica-agendamento [compile].executor": "Run",
-    "Maven.clinica-medica-agendamento [install].executor": "Run",
-    "Maven.clinica-medica-agendamento [package].executor": "Run",
-    "Maven.clinica-medica-comum [clean].executor": "Run",
-    "Maven.clinica-medica-comum [compile].executor": "Run",
-    "Maven.clinica-medica-comum [install].executor": "Run",
-    "RequestMappingsPanelOrder0": "0",
-    "RequestMappingsPanelOrder1": "1",
-    "RequestMappingsPanelWidth0": "75",
-    "RequestMappingsPanelWidth1": "75",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "RunOnceActivity.git.unshallow": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "git-widget-placeholder": "master",
-    "jdk.selected.JAVA_MODULE": "17",
-    "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "C:/Users/User/OneDrive/Documentos/Faculdade/3° Periodo/Projeto integrador/clinica-medica-micro-3",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "project.structure.last.edited": "Problems",
-    "project.structure.proportion": "0.15",
-    "project.structure.side.proportion": "0.47586206",
-    "settings.editor.selected.configurable": "project.propVCSSupport.Mappings",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Application.ClinicaMedicaAdministrativoApp.executor&quot;: &quot;Run&quot;,
+    &quot;Application.ClinicaMedicaAgendamentoApp.executor&quot;: &quot;Run&quot;,
+    &quot;Application.ClinicaMedicaAtendimentoApp.executor&quot;: &quot;Run&quot;,
+    &quot;Docker.containers.mysql: Compose Deployment.executor&quot;: &quot;Run&quot;,
+    &quot;Docker.containers: Compose Deployment.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.ConsultaServiceTest.testSaveConsulta.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.ConsultaServiceTest.testSaveConsulta_WhenPacienteNotFound_ShouldThrowException.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.ConvenioServiceTest.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.ConvenioServiceTest.testDeleteConvenio.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.ConvenioServiceTest.testFindById_WhenFound.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.ConvenioServiceTest.testFindById_WhenNotFound_ShouldThrowException.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.ConvenioServiceTest.testSaveConvenio.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.EspecialidadeServiceTest.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.EspecialidadeServiceTest.testAdicionarEspecialidade.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.PacienteServiceTest.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.PacienteServiceTest.testSavePaciente_WithConvenio.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.PacienteServiceTest.testSavePaciente_WithoutConvenio.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.PerfilServiceTest.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.PerfilServiceTest.testSavePerfil.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.ProntuarioServiceTest.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.ProntuarioServiceTest.testSaveProntuario.executor&quot;: &quot;Run&quot;,
+    &quot;Maven.clinica-medica [clean,install,-U].executor&quot;: &quot;Run&quot;,
+    &quot;Maven.clinica-medica [clean].executor&quot;: &quot;Run&quot;,
+    &quot;Maven.clinica-medica [compile].executor&quot;: &quot;Run&quot;,
+    &quot;Maven.clinica-medica [install].executor&quot;: &quot;Run&quot;,
+    &quot;Maven.clinica-medica [verify].executor&quot;: &quot;Run&quot;,
+    &quot;Maven.clinica-medica-agendamento [clean].executor&quot;: &quot;Run&quot;,
+    &quot;Maven.clinica-medica-agendamento [compile].executor&quot;: &quot;Run&quot;,
+    &quot;Maven.clinica-medica-agendamento [install].executor&quot;: &quot;Run&quot;,
+    &quot;Maven.clinica-medica-agendamento [package].executor&quot;: &quot;Run&quot;,
+    &quot;Maven.clinica-medica-comum [clean].executor&quot;: &quot;Run&quot;,
+    &quot;Maven.clinica-medica-comum [compile].executor&quot;: &quot;Run&quot;,
+    &quot;Maven.clinica-medica-comum [install].executor&quot;: &quot;Run&quot;,
+    &quot;RequestMappingsPanelOrder0&quot;: &quot;0&quot;,
+    &quot;RequestMappingsPanelOrder1&quot;: &quot;1&quot;,
+    &quot;RequestMappingsPanelWidth0&quot;: &quot;75&quot;,
+    &quot;RequestMappingsPanelWidth1&quot;: &quot;75&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
+    &quot;jdk.selected.JAVA_MODULE&quot;: &quot;17&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/User/OneDrive/Documentos/Faculdade/3° Periodo/Projeto integrador/clinica-medica-micro-3&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Problems&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.47586206&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;project.propVCSSupport.Mappings&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CreateClassDialog.RecentsKey">
       <recent name="br.edu.imepac.comum.exceptions" />
@@ -157,50 +161,42 @@
       <command value="import lombok.Data; import java.time.LocalDate;" />
     </option>
   </component>
-  <component name="RunManager" selected="JUnit.ProntuarioServiceTest.testSaveProntuario">
-    <configuration name="PacienteServiceTest.testSavePaciente_WithoutConvenio" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="clinica-medica-comum" />
+  <component name="RunManager" selected="Application.ClinicaMedicaAdministrativoApp">
+    <configuration name="ClinicaMedicaAdministrativoApp" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="br.edu.imepac.administrativo.ClinicaMedicaAdministrativoApp" />
+      <module name="clinica-medica-administrativo" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="br.edu.imepac.comum.services.*" />
+          <option name="PATTERN" value="br.edu.imepac.administrativo.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="PACKAGE_NAME" value="br.edu.imepac.comum.services" />
-      <option name="MAIN_CLASS_NAME" value="br.edu.imepac.comum.services.PacienteServiceTest" />
-      <option name="METHOD_NAME" value="testSavePaciente_WithoutConvenio" />
-      <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="PerfilServiceTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="clinica-medica-comum" />
+    <configuration name="ClinicaMedicaAgendamentoApp" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="br.edu.imepac.agendamento.ClinicaMedicaAgendamentoApp" />
+      <module name="clinica-medica-agendamento" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="br.edu.imepac.comum.services.*" />
+          <option name="PATTERN" value="br.edu.imepac.agendamento.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="PACKAGE_NAME" value="br.edu.imepac.comum.services" />
-      <option name="MAIN_CLASS_NAME" value="br.edu.imepac.comum.services.PerfilServiceTest" />
-      <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="PerfilServiceTest.testSavePerfil" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="clinica-medica-comum" />
+    <configuration name="ClinicaMedicaAtendimentoApp" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="br.edu.imepac.atendimento.utils.ClinicaMedicaAtendimentoApp" />
+      <module name="clinica-medica-atendimento" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="br.edu.imepac.comum.services.*" />
+          <option name="PATTERN" value="br.edu.imepac.atendimento.utils.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="PACKAGE_NAME" value="br.edu.imepac.comum.services" />
-      <option name="MAIN_CLASS_NAME" value="br.edu.imepac.comum.services.PerfilServiceTest" />
-      <option name="METHOD_NAME" value="testSavePerfil" />
-      <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -243,19 +239,19 @@
       <method v="2" />
     </configuration>
     <list>
-      <item itemvalue="JUnit.PacienteServiceTest.testSavePaciente_WithoutConvenio" />
-      <item itemvalue="JUnit.PerfilServiceTest" />
-      <item itemvalue="JUnit.PerfilServiceTest.testSavePerfil" />
+      <item itemvalue="Application.ClinicaMedicaAdministrativoApp" />
+      <item itemvalue="Application.ClinicaMedicaAgendamentoApp" />
+      <item itemvalue="Application.ClinicaMedicaAtendimentoApp" />
       <item itemvalue="JUnit.ProntuarioServiceTest" />
       <item itemvalue="JUnit.ProntuarioServiceTest.testSaveProntuario" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.ClinicaMedicaAdministrativoApp" />
+        <item itemvalue="Application.ClinicaMedicaAgendamentoApp" />
+        <item itemvalue="Application.ClinicaMedicaAtendimentoApp" />
         <item itemvalue="JUnit.ProntuarioServiceTest.testSaveProntuario" />
         <item itemvalue="JUnit.ProntuarioServiceTest" />
-        <item itemvalue="JUnit.PerfilServiceTest.testSavePerfil" />
-        <item itemvalue="JUnit.PerfilServiceTest" />
-        <item itemvalue="JUnit.PacienteServiceTest.testSavePaciente_WithoutConvenio" />
       </list>
     </recent_temporary>
   </component>
@@ -300,6 +296,17 @@
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

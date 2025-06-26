@@ -4,7 +4,9 @@ import br.edu.imepac.comum.dtos.funcionario.FuncionarioDto;
 import br.edu.imepac.comum.dtos.funcionario.FuncionarioRequest;
 import br.edu.imepac.comum.exceptions.NotFoundClinicaMedicaException;
 import br.edu.imepac.comum.models.Funcionario;
+import br.edu.imepac.comum.models.Perfil;
 import br.edu.imepac.comum.repositories.FuncionarioRepository;
+import br.edu.imepac.comum.repositories.PerfilRepository;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -19,34 +21,56 @@ public class FuncionarioService {
     private FuncionarioRepository funcionarioRepository;
 
     @Autowired
+    private PerfilRepository perfilRepository;
+
+    @Autowired
     private ModelMapper modelMapper;
 
-    public FuncionarioDto adicionarFuncionario(FuncionarioRequest funcionarioRequest) {
-        // Futuramente, aqui entraria a lógica para encriptar a senha
-        Funcionario funcionario = modelMapper.map(funcionarioRequest, Funcionario.class);
+    public FuncionarioDto adicionarFuncionario(FuncionarioRequest request) {
+        Perfil perfil = perfilRepository.findById(request.getPerfilId())
+                .orElseThrow(() -> new NotFoundClinicaMedicaException("Perfil não encontrado"));
+
+        Funcionario funcionario = modelMapper.map(request, Funcionario.class);
+        funcionario.setPerfil(perfil);
+
         Funcionario savedFuncionario = funcionarioRepository.save(funcionario);
         return modelMapper.map(savedFuncionario, FuncionarioDto.class);
     }
 
-    // O seu controller está a passar um DTO aqui. O ideal seria um Request, mas vamos seguir o seu código.
-    public FuncionarioDto atualizarFuncionario(Long id, FuncionarioDto funcionarioDto) {
+    // *** MÉTODO DE ATUALIZAÇÃO FINAL E CORRIGIDO ***
+    public FuncionarioDto atualizarFuncionario(Long id, FuncionarioRequest request) {
         Funcionario funcionarioExistente = funcionarioRepository.findById(id)
                 .orElseThrow(() -> new NotFoundClinicaMedicaException("Funcionário não encontrado"));
 
-        // Mapeia os dados do DTO para a entidade existente, evitando mudar campos sensíveis
-        funcionarioExistente.setNome(funcionarioDto.getNome());
-        funcionarioExistente.setEmail(funcionarioDto.getEmail());
-        // Adicione outros campos que podem ser atualizados
+        // Verifica campo a campo se um novo valor foi enviado e atualiza.
+        if (request.getNome() != null) {
+            funcionarioExistente.setNome(request.getNome());
+        }
+        if (request.getEmail() != null) {
+            funcionarioExistente.setEmail(request.getEmail());
+        }
+        if (request.getUsuario() != null) {
+            funcionarioExistente.setUsuario(request.getUsuario());
+        }
+        // Adicione outros ifs para todos os campos que podem ser atualizados.
+
+        // Se um novo perfilId for enviado, atualiza o relacionamento.
+        if (request.getPerfilId() != null) {
+            Perfil perfil = perfilRepository.findById(request.getPerfilId())
+                    .orElseThrow(() -> new NotFoundClinicaMedicaException("Perfil não encontrado para atualização"));
+            funcionarioExistente.setPerfil(perfil);
+        }
 
         Funcionario updatedFuncionario = funcionarioRepository.save(funcionarioExistente);
         return modelMapper.map(updatedFuncionario, FuncionarioDto.class);
     }
 
-    public void removerFuncionario(Long id) {
-        if (!funcionarioRepository.existsById(id)) {
-            throw new NotFoundClinicaMedicaException("Funcionário não encontrado");
-        }
-        funcionarioRepository.deleteById(id);
+    public List<FuncionarioDto> listarFuncionarios() {
+        List<Funcionario> funcionarios = funcionarioRepository.findAll();
+        // Usamos o ModelMapper aqui, que é seguro para listas quando o DTO é simples.
+        return funcionarios.stream()
+                .map(funcionario -> modelMapper.map(funcionario, FuncionarioDto.class))
+                .collect(Collectors.toList());
     }
 
     public FuncionarioDto buscarFuncionarioPorId(Long id) {
@@ -55,9 +79,10 @@ public class FuncionarioService {
         return modelMapper.map(funcionario, FuncionarioDto.class);
     }
 
-    public List<FuncionarioDto> listarFuncionarios() {
-        return funcionarioRepository.findAll().stream()
-                .map(funcionario -> modelMapper.map(funcionario, FuncionarioDto.class))
-                .collect(Collectors.toList());
+    public void removerFuncionario(Long id) {
+        if (!funcionarioRepository.existsById(id)) {
+            throw new NotFoundClinicaMedicaException("Funcionário não encontrado");
+        }
+        funcionarioRepository.deleteById(id);
     }
 }

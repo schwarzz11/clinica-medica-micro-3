@@ -1,10 +1,15 @@
 package br.edu.imepac.comum.models;
 
 import jakarta.persistence.*;
-import lombok.Data;
+import lombok.Getter;  // Importe Getter
+import lombok.Setter;  // Importe Setter
 import java.time.LocalDate;
 
-@Data
+// *** CORREÇÃO APLICADA AQUI ***
+// Substituímos @Data por @Getter e @Setter para evitar loops infinitos
+// em métodos como toString(), equals() e hashCode().
+@Getter
+@Setter
 @Entity
 @Table(name = "pacientes")
 public class Paciente {
@@ -58,7 +63,6 @@ public class Paciente {
 
     private boolean possuiConvenio;
 
-    // Relacionamento com Convenio
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "convenio_id")
     private Convenio convenio;

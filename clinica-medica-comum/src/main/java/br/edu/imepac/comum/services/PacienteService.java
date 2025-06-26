@@ -41,6 +41,29 @@ public class PacienteService {
         return convertToDto(savedPaciente);
     }
 
+    public PacienteDto update(Long id, PacienteRequest request) {
+        Paciente pacienteExistente = pacienteRepository.findById(id)
+                .orElseThrow(() -> new NotFoundClinicaMedicaException("Paciente não encontrado"));
+
+        // O ModelMapper com 'setSkipNullEnabled(true)' irá agora atualizar apenas os campos enviados.
+        modelMapper.map(request, pacienteExistente);
+
+        // Se um novo convenioId for passado, atualiza a referência
+        if (request.getConvenioId() != null) {
+            Convenio convenio = convenioRepository.findById(request.getConvenioId())
+                    .orElseThrow(() -> new NotFoundClinicaMedicaException("Convênio não encontrado para atualização"));
+            pacienteExistente.setConvenio(convenio);
+        }
+
+        Paciente updatedPaciente = pacienteRepository.save(pacienteExistente);
+        return convertToDto(updatedPaciente);
+    }
+
+    private PacienteDto convertToDto(Paciente paciente) {
+        // Agora o ModelMapper sabe como fazer esta conversão sem erros.
+        return modelMapper.map(paciente, PacienteDto.class);
+    }
+
     public List<PacienteDto> findAll() {
         return pacienteRepository.findAll().stream()
                 .map(this::convertToDto)
@@ -53,40 +76,10 @@ public class PacienteService {
         return convertToDto(paciente);
     }
 
-    public PacienteDto update(Long id, PacienteRequest pacienteRequest) {
-        Paciente pacienteExistente = pacienteRepository.findById(id)
-                .orElseThrow(() -> new NotFoundClinicaMedicaException("Paciente não encontrado"));
-
-        modelMapper.map(pacienteRequest, pacienteExistente);
-        pacienteExistente.setId(id); // Garante que o ID não será alterado
-
-        if (pacienteRequest.isPossuiConvenio() && pacienteRequest.getConvenioId() != null) {
-            Convenio convenio = convenioRepository.findById(pacienteRequest.getConvenioId())
-                    .orElseThrow(() -> new NotFoundClinicaMedicaException("Convênio não encontrado"));
-            pacienteExistente.setConvenio(convenio);
-        } else {
-            pacienteExistente.setConvenio(null);
-            pacienteExistente.setNumeroCarteirinha(null);
-            pacienteExistente.setValidadeCarteirinha(null);
-        }
-
-        Paciente updatedPaciente = pacienteRepository.save(pacienteExistente);
-        return convertToDto(updatedPaciente);
-    }
-
     public void delete(Long id) {
         if (!pacienteRepository.existsById(id)) {
             throw new NotFoundClinicaMedicaException("Paciente não encontrado");
         }
         pacienteRepository.deleteById(id);
-    }
-
-    // Método auxiliar para converter para DTO e lidar com o nome do convênio
-    private PacienteDto convertToDto(Paciente paciente) {
-        PacienteDto dto = modelMapper.map(paciente, PacienteDto.class);
-        if (paciente.getConvenio() != null) {
-            dto.setNomeConvenio(paciente.getConvenio().getNomeEmpresa());
-        }
-        return dto;
     }
 }

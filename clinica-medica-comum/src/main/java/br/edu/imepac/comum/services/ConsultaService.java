@@ -80,4 +80,33 @@ public class ConsultaService {
         dto.setNomeMedico(consulta.getMedico().getNome());
         return dto;
     }
+    public ConsultaDto update(Long id, ConsultaRequest request) {
+        Consulta consultaExistente = consultaRepository.findById(id)
+                .orElseThrow(() -> new NotFoundClinicaMedicaException("Consulta não encontrada"));
+
+        // Valida se os novos IDs de paciente e médico existem, se forem fornecidos
+        if (request.getPacienteId() != null) {
+            Paciente paciente = pacienteRepository.findById(request.getPacienteId())
+                    .orElseThrow(() -> new NotFoundClinicaMedicaException("Paciente não encontrado para atualização"));
+            consultaExistente.setPaciente(paciente);
+        }
+
+        if (request.getMedicoId() != null) {
+            Funcionario medico = funcionarioRepository.findById(request.getMedicoId())
+                    .orElseThrow(() -> new NotFoundClinicaMedicaException("Médico não encontrado para atualização"));
+            consultaExistente.setMedico(medico);
+        }
+
+        // Atualiza os outros campos se eles foram fornecidos
+        if (request.getDataHorario() != null) {
+            consultaExistente.setDataHorario(request.getDataHorario());
+        }
+        if (request.getSintomas() != null) {
+            consultaExistente.setSintomas(request.getSintomas());
+        }
+
+        Consulta updatedConsulta = consultaRepository.save(consultaExistente);
+        return convertToDto(updatedConsulta);
+    }
+
 }

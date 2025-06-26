@@ -3,54 +3,48 @@ package br.edu.imepac.administrativo.controllers;
 import br.edu.imepac.comum.dtos.funcionario.FuncionarioDto;
 import br.edu.imepac.comum.dtos.funcionario.FuncionarioRequest;
 import br.edu.imepac.comum.services.FuncionarioService;
-import lombok.extern.slf4j.Slf4j;
+import jakarta.validation.Valid;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
-@Slf4j
 @RestController
 @RequestMapping("/funcionarios")
 public class FuncionarioController {
-    private final FuncionarioService funcionarioService;
 
-    public FuncionarioController(FuncionarioService funcionarioService) {
-        this.funcionarioService = funcionarioService;
-    }
+    @Autowired
+    private FuncionarioService funcionarioService;
 
     @PostMapping
-    @ResponseStatus(HttpStatus.CREATED)
-    public FuncionarioDto criarFuncionario(@RequestBody FuncionarioRequest funcionarioRequest) {
-        log.info("Criando funcionário - controller: {}", funcionarioRequest);
-        return funcionarioService.adicionarFuncionario(funcionarioRequest);
+    public ResponseEntity<FuncionarioDto> criarFuncionario(@Valid @RequestBody FuncionarioRequest request) {
+        FuncionarioDto funcionarioCriado = funcionarioService.adicionarFuncionario(request);
+        return new ResponseEntity<>(funcionarioCriado, HttpStatus.CREATED);
     }
 
-    @PutMapping("/{id}")
-    @ResponseStatus(HttpStatus.OK)
-    public FuncionarioDto atualizarFuncionario(@PathVariable Long id, @RequestBody FuncionarioDto funcionarioDto) {
-        log.info("Atualizar funcionário - controller: {}", funcionarioDto);
-        return funcionarioService.atualizarFuncionario(id, funcionarioDto);
-    }
-
-    @DeleteMapping("/{id}")
-    @ResponseStatus(HttpStatus.NO_CONTENT)
-    public void removerFuncionario(@PathVariable Long id) {
-        log.info("Remover funcionário - controller: {}", id);
-        funcionarioService.removerFuncionario(id);
+    @GetMapping
+    public ResponseEntity<List<FuncionarioDto>> listarFuncionarios() {
+        List<FuncionarioDto> funcionarios = funcionarioService.listarFuncionarios();
+        return ResponseEntity.ok(funcionarios);
     }
 
     @GetMapping("/{id}")
-    @ResponseStatus(HttpStatus.OK)
-    public FuncionarioDto buscarFuncionarioPorId(@PathVariable Long id) {
-        log.info("Buscar funcionário - controller: {}", id);
-        return funcionarioService.buscarFuncionarioPorId(id);
+    public ResponseEntity<FuncionarioDto> buscarFuncionarioPorId(@PathVariable Long id) {
+        FuncionarioDto funcionario = funcionarioService.buscarFuncionarioPorId(id);
+        return ResponseEntity.ok(funcionario);
     }
 
-    @GetMapping("/listar")
-    @ResponseStatus(HttpStatus.OK)
-    public List<FuncionarioDto> listarFuncionarios() {
-        log.info("Listar funcionários - controller");
-        return funcionarioService.listarFuncionarios();
+    @PutMapping("/{id}")
+    public ResponseEntity<FuncionarioDto> atualizarFuncionario(@PathVariable Long id, @Valid @RequestBody FuncionarioRequest request) {
+        FuncionarioDto funcionarioAtualizado = funcionarioService.atualizarFuncionario(id, request);
+        return ResponseEntity.ok(funcionarioAtualizado);
+    }
+
+    @DeleteMapping("/{id}")
+    public ResponseEntity<Void> removerFuncionario(@PathVariable Long id) {
+        funcionarioService.removerFuncionario(id);
+        return ResponseEntity.noContent().build();
     }
 }

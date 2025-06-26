@@ -1,11 +1,15 @@
 package br.edu.imepac.comum.models;
 
 import jakarta.persistence.*;
-import lombok.Data;
+import lombok.Getter; // Importe Getter
+import lombok.Setter; // Importe Setter
 
-@Data // Anotação do Lombok para gerar Getters, Setters, toString, etc.
-@Entity // Anotação do JPA para indicar que esta classe é uma entidade
-@Table(name = "convenios") // Especifica o nome da tabela no banco
+// *** CORREÇÃO APLICADA AQUI ***
+// Substituímos @Data por @Getter e @Setter.
+@Getter
+@Setter
+@Entity
+@Table(name = "convenios")
 public class Convenio {
 
     @Id
@@ -23,4 +27,6 @@ public class Convenio {
 
     @Column(length = 20)
     private String telefone;
+
+
 }

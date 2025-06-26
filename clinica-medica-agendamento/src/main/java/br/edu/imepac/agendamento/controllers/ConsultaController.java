@@ -40,4 +40,9 @@ public class ConsultaController {
         consultaService.delete(id);
         return ResponseEntity.noContent().build();
     }
+    @PutMapping("/{id}")
+    public ResponseEntity<ConsultaDto> update(@PathVariable Long id, @RequestBody ConsultaRequest request) {
+        ConsultaDto consultaAtualizada = consultaService.update(id, request);
+        return ResponseEntity.ok(consultaAtualizada);
+    }
 }
