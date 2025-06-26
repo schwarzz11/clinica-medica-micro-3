@@ -11,42 +11,49 @@ import org.springframework.web.filter.OncePerRequestFilter;
 import java.io.IOException;
 import java.util.Optional;
 
+// Para ativar este filtro, você precisará registrá-lo em uma classe de configuração de segurança.
+// Por enquanto, a anotação @Component está comentada.
 //@Component
 public class AuthorizationFilter extends OncePerRequestFilter {
 
-    // **Injeção de Dependência**: The `PerfilService` is injected to verify user authorization.
     private final PerfilService perfilService;
 
-    // **Construtor**: Receives the `PerfilService` dependency for initialization.
     public AuthorizationFilter(PerfilService perfilService) {
         this.perfilService = perfilService;
     }
 
-    // **doFilterInternal**: This method intercepts HTTP requests and applies the authorization logic.
     @Override
     protected void doFilterInternal(HttpServletRequest request, HttpServletResponse response, FilterChain filterChain)
             throws ServletException, IOException {
         String path = request.getRequestURI();
 
-        if (!path.startsWith("/clinica-medica-administrativo/swagger-ui.html")&&
-                !path.startsWith("/clinica-medica-administrativo/v3/api-docs")) {
-            // **Optional.ofNullable**: Retrieves the "usuario" header or throws an exception if not found.
-            String usuario = Optional.ofNullable(request.getHeader("usuario"))
-                    .orElseThrow(() -> new AuthenticationClinicaMedicaException("Usuario não encontrado!"));
-
-            // **Optional.ofNullable**: Retrieves the "senha" header or throws an exception if not found.
-            String senha = Optional.ofNullable(request.getHeader("senha"))
-                    .orElseThrow(() -> new AuthenticationClinicaMedicaException("Senha não encontrado!"));
-
-            // **Optional.ofNullable**: Retrieves the "action" header or throws an exception if not found.
-            String acao = Optional.ofNullable(request.getHeader("action"))
-                    .orElseThrow(() -> new AuthenticationClinicaMedicaException("Ação não encontrado!"));
-
-            // **Verificação de Autorização**: Calls the service to verify if the user is authorized.
-            boolean autorizado = perfilService.verificarAutorizacao(usuario, senha, acao);
+        // Libera o acesso à documentação do Swagger e outras rotas públicas se necessário
+        if (path.startsWith("/swagger-ui") || path.startsWith("/v3/api-docs")) {
+            filterChain.doFilter(request, response);
+            return; // Importante: retorna para não executar o resto do filtro
         }
 
-        // **filterChain.doFilter**: Proceeds with the filter chain if no exception is thrown.
+        // Recupera os cabeçalhos para autenticação e autorização
+        String usuario = Optional.ofNullable(request.getHeader("usuario"))
+                .orElseThrow(() -> new AuthenticationClinicaMedicaException("Cabeçalho 'usuario' não encontrado!"));
+
+        String senha = Optional.ofNullable(request.getHeader("senha"))
+                .orElseThrow(() -> new AuthenticationClinicaMedicaException("Cabeçalho 'senha' não encontrado!"));
+
+        String acao = Optional.ofNullable(request.getHeader("action"))
+                .orElseThrow(() -> new AuthenticationClinicaMedicaException("Cabeçalho 'action' não encontrado!"));
+
+        // *** CORREÇÃO APLICADA AQUI ***
+        // Chamando o método na instância 'perfilService' em vez da classe 'PerfilService'.
+        boolean autorizado = this.perfilService.verificarAutorizacao(usuario, senha, acao);
+
+        // Se o serviço retornar 'false', o usuário não tem permissão.
+        if (!autorizado) {
+            // Lança uma exceção que será capturada pelo handler global para retornar um erro 403 Forbidden ou similar.
+            throw new AuthenticationClinicaMedicaException("O usuário não tem permissão para realizar a ação: " + acao);
+        }
+
+        // Se a autorização foi bem-sucedida, a requisição continua seu fluxo normal.
         filterChain.doFilter(request, response);
     }
 }

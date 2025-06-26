@@ -3,9 +3,9 @@ package br.edu.imepac.comum.services;
 import br.edu.imepac.comum.dtos.prontuario.ProntuarioDto;
 import br.edu.imepac.comum.dtos.prontuario.ProntuarioRequest;
 import br.edu.imepac.comum.exceptions.NotFoundClinicaMedicaException;
-import br.edu.imepac.comum.models.Paciente;
+import br.edu.imepac.comum.models.Consulta;
 import br.edu.imepac.comum.models.Prontuario;
-import br.edu.imepac.comum.repositories.PacienteRepository;
+import br.edu.imepac.comum.repositories.ConsultaRepository;
 import br.edu.imepac.comum.repositories.ProntuarioRepository;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,125 +14,76 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 import java.util.stream.Collectors;
 
-/**
- * Serviço para gerenciar operações de prontuário.
- * Contém a lógica de negócio para CRUD de prontuários.
- */
-@Service // Indica que esta classe é um componente de serviço
+@Service
 public class ProntuarioService {
 
     @Autowired
     private ProntuarioRepository prontuarioRepository;
 
     @Autowired
-    private PacienteRepository pacienteRepository; // Para buscar o paciente associado
+    private ConsultaRepository consultaRepository;
 
     @Autowired
     private ModelMapper modelMapper;
 
-    /**
-     * Busca todos os prontuários existentes.
-     * @return Uma lista de ProntuarioDto.
-     */
-    public List<ProntuarioDto> findAll() {
-        // Busca todos os prontuários no banco de dados
-        List<Prontuario> prontuarios = prontuarioRepository.findAll();
-        // Converte cada Prontuario para ProntuarioDto e coleta em uma nova lista
-        return prontuarios.stream().map(prontuario -> {
-            ProntuarioDto dto = modelMapper.map(prontuario, ProntuarioDto.class);
-            if (prontuario.getPaciente() != null) {
-                dto.setPacienteNome(prontuario.getPaciente().getNome());
-            }
-            return dto;
-        }).collect(Collectors.toList());
-    }
+    public ProntuarioDto save(ProntuarioRequest request) {
+        Consulta consulta = consultaRepository.findById(request.getConsultaId())
+                .orElseThrow(() -> new NotFoundClinicaMedicaException("Consulta não encontrada"));
 
-    /**
-     * Busca um prontuário pelo seu ID.
-     * @param id O ID do prontuário a ser buscado.
-     * @return O ProntuarioDto correspondente.
-     * @throws NotFoundClinicaMedicaException Se o prontuário não for encontrado.
-     */
-    public ProntuarioDto findById(Long id) {
-        // Busca o prontuário pelo ID ou lança uma exceção se não encontrado
-        Prontuario prontuario = prontuarioRepository.findById(id)
-                .orElseThrow(() -> new NotFoundClinicaMedicaException("Prontuário não encontrado com o ID: " + id));
+        Prontuario prontuario = new Prontuario();
+        prontuario.setConsulta(consulta);
+        prontuario.setReceituario(request.getReceituario());
+        prontuario.setExames(request.getExames());
+        prontuario.setObservacoes(request.getObservacoes());
 
-        // Converte o prontuário encontrado para ProntuarioDto
-        ProntuarioDto dto = modelMapper.map(prontuario, ProntuarioDto.class);
-        if (prontuario.getPaciente() != null) {
-            dto.setPacienteNome(prontuario.getPaciente().getNome());
-        }
-        return dto;
-    }
-
-    /**
-     * Cria um novo prontuário.
-     * @param request Os dados do prontuário a serem criados.
-     * @return O ProntuarioDto do prontuário recém-criado.
-     * @throws NotFoundClinicaMedicaException Se o paciente associado não for encontrado.
-     */
-    public ProntuarioDto create(ProntuarioRequest request) {
-        // Busca o paciente associado ao prontuário
-        Paciente paciente = pacienteRepository.findById(request.getPacienteId())
-                .orElseThrow(() -> new NotFoundClinicaMedicaException("Paciente não encontrado com o ID: " + request.getPacienteId()));
-
-        // Mapeia o ProntuarioRequest para a entidade Prontuario
-        Prontuario prontuario = modelMapper.map(request, Prontuario.class);
-        prontuario.setPaciente(paciente); // Define o paciente no prontuário
-
-        // Salva o novo prontuário no banco de dados
         Prontuario savedProntuario = prontuarioRepository.save(prontuario);
-
-        // Converte o prontuário salvo para ProntuarioDto
-        ProntuarioDto dto = modelMapper.map(savedProntuario, ProntuarioDto.class);
-        dto.setPacienteNome(paciente.getNome()); // Define o nome do paciente no DTO
-        return dto;
+        return convertToDto(savedProntuario);
     }
 
-    /**
-     * Atualiza um prontuário existente.
-     * @param id O ID do prontuário a ser atualizado.
-     * @param request Os novos dados do prontuário.
-     * @return O ProntuarioDto do prontuário atualizado.
-     * @throws NotFoundClinicaMedicaException Se o prontuário ou o paciente associado não for encontrado.
-     */
+    public List<ProntuarioDto> findAll() {
+        return prontuarioRepository.findAll().stream()
+                .map(this::convertToDto)
+                .collect(Collectors.toList());
+    }
+
+    public ProntuarioDto findById(Long id) {
+        Prontuario prontuario = prontuarioRepository.findById(id)
+                .orElseThrow(() -> new NotFoundClinicaMedicaException("Prontuário não encontrado"));
+        return convertToDto(prontuario);
+    }
+
     public ProntuarioDto update(Long id, ProntuarioRequest request) {
-        // Busca o prontuário existente ou lança uma exceção se não encontrado
-        Prontuario existingProntuario = prontuarioRepository.findById(id)
-                .orElseThrow(() -> new NotFoundClinicaMedicaException("Prontuário não encontrado com o ID: " + id));
+        Prontuario prontuarioExistente = prontuarioRepository.findById(id)
+                .orElseThrow(() -> new NotFoundClinicaMedicaException("Prontuário não encontrado"));
 
-        // Busca o paciente associado, caso o ID do paciente seja diferente
-        Paciente paciente = pacienteRepository.findById(request.getPacienteId())
-                .orElseThrow(() -> new NotFoundClinicaMedicaException("Paciente não encontrado com o ID: " + request.getPacienteId()));
+        // Valida se a consulta associada na requisição de update existe
+        consultaRepository.findById(request.getConsultaId())
+                .orElseThrow(() -> new NotFoundClinicaMedicaException("Consulta não encontrada para atualização"));
 
-        // Atualiza os campos do prontuário existente com os dados da requisição
-        existingProntuario.setDataCriacao(request.getDataCriacao());
-        existingProntuario.setHistoricoMedico(request.getHistoricoMedico());
-        existingProntuario.setMedicacaoAtual(request.getMedicacaoAtual());
-        existingProntuario.setAlergias(request.getAlergias());
-        existingProntuario.setPaciente(paciente); // Atualiza o paciente associado
+        modelMapper.map(request, prontuarioExistente);
+        // Garante que o ID e a consulta original não sejam alterados no update.
+        // Se a regra de negócio permitir trocar a consulta de um prontuário, essa lógica mudaria.
+        prontuarioExistente.setId(id);
 
-        // Salva as alterações no banco de dados
-        Prontuario updatedProntuario = prontuarioRepository.save(existingProntuario);
-
-        // Converte o prontuário atualizado para ProntuarioDto
-        ProntuarioDto dto = modelMapper.map(updatedProntuario, ProntuarioDto.class);
-        dto.setPacienteNome(paciente.getNome()); // Define o nome do paciente no DTO
-        return dto;
+        Prontuario updatedProntuario = prontuarioRepository.save(prontuarioExistente);
+        return convertToDto(updatedProntuario);
     }
 
-    /**
-     * Deleta um prontuário pelo seu ID.
-     * @param id O ID do prontuário a ser deletado.
-     * @throws NotFoundClinicaMedicaException Se o prontuário não for encontrado.
-     */
     public void delete(Long id) {
-        // Verifica se o prontuário existe antes de deletar
         if (!prontuarioRepository.existsById(id)) {
-            throw new NotFoundClinicaMedicaException("Prontuário não encontrado com o ID: " + id);
+            throw new NotFoundClinicaMedicaException("Prontuário não encontrado");
         }
-        // Deleta o prontuário pelo ID
         prontuarioRepository.deleteById(id);
+    }
+
+    private ProntuarioDto convertToDto(Prontuario prontuario) {
+        ProntuarioDto dto = modelMapper.map(prontuario, ProntuarioDto.class);
+        if (prontuario.getConsulta() != null) {
+            dto.setConsultaId(prontuario.getConsulta().getId());
+            dto.setDataConsulta(prontuario.getConsulta().getDataHorario());
+            dto.setNomePaciente(prontuario.getConsulta().getPaciente().getNome());
+            dto.setNomeMedico(prontuario.getConsulta().getMedico().getNome());
+        }
+        return dto;
     }
 }

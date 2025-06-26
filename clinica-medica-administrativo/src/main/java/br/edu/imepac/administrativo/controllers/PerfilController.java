@@ -56,8 +56,9 @@ public class PerfilController {
      */
     @PostMapping // Mapeia requisições POST para /perfis
     public ResponseEntity<PerfilDto> createPerfil(@Valid @RequestBody PerfilRequest request) {
-        // Chama o serviço para criar um novo perfil
-        PerfilDto createdPerfil = perfilService.create(request);
+        // *** CORREÇÃO APLICADA AQUI ***
+        // O nome do método no serviço é 'save', não 'create'.
+        PerfilDto createdPerfil = perfilService.save(request);
         // Retorna o perfil criado com status 201 (Created)
         return ResponseEntity.status(HttpStatus.CREATED).body(createdPerfil);
     }

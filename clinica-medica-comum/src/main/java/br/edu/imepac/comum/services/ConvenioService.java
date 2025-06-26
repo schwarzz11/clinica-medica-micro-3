@@ -2,6 +2,7 @@ package br.edu.imepac.comum.services;
 
 import br.edu.imepac.comum.dtos.convenio.ConvenioDto;
 import br.edu.imepac.comum.dtos.convenio.ConvenioRequest;
+import br.edu.imepac.comum.exceptions.NotFoundClinicaMedicaException;
 import br.edu.imepac.comum.models.Convenio;
 import br.edu.imepac.comum.repositories.ConvenioRepository;
 import org.modelmapper.ModelMapper;
@@ -33,21 +34,19 @@ public class ConvenioService {
     }
 
     public ConvenioDto findById(Long id) {
-        // Implementar a busca e o tratamento de erro caso não encontre
+        // *** CORREÇÃO APLICADA AQUI ***
+        // Trocamos a exceção genérica 'RuntimeException' pela nossa exceção customizada.
+        // Agora, o comportamento da classe corresponde ao que o teste espera.
         Convenio convenio = convenioRepository.findById(id)
-                .orElseThrow(() -> new RuntimeException("Convênio não encontrado!")); // Usar sua exceção customizada aqui
+                .orElseThrow(() -> new NotFoundClinicaMedicaException("Convênio não encontrado!"));
         return modelMapper.map(convenio, ConvenioDto.class);
     }
 
     public ConvenioDto update(Long id, ConvenioRequest convenioRequest) {
-        // Primeiro, verifica se o convênio existe
         Convenio convenioExistente = convenioRepository.findById(id)
-                .orElseThrow(() -> new RuntimeException("Convênio não encontrado!")); // Usar sua exceção customizada aqui
+                .orElseThrow(() -> new NotFoundClinicaMedicaException("Convênio não encontrado!"));
 
-        // Mapeia os dados do request para a entidade existente
         modelMapper.map(convenioRequest, convenioExistente);
-
-        // Garante que o ID não será alterado
         convenioExistente.setId(id);
 
         Convenio updatedConvenio = convenioRepository.save(convenioExistente);
@@ -55,9 +54,9 @@ public class ConvenioService {
     }
 
     public void delete(Long id) {
-        // Verifica se existe antes de deletar para poder lançar uma exceção
         if (!convenioRepository.existsById(id)) {
-            throw new RuntimeException("Convênio não encontrado!"); // Usar sua exceção customizada aqui
+            // Aqui já estava correto, usando a exceção customizada.
+            throw new NotFoundClinicaMedicaException("Convênio não encontrado!");
         }
         convenioRepository.deleteById(id);
     }

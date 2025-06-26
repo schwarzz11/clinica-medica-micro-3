@@ -1,8 +1,8 @@
-package br.edu.imepac.agendamento.controllers;
+package br.edu.imepac.atendimento.controllers;
+
 
 import br.edu.imepac.comum.dtos.prontuario.ProntuarioDto;
 import br.edu.imepac.comum.dtos.prontuario.ProntuarioRequest;
-import br.edu.imepac.comum.exceptions.NotFoundClinicaMedicaException;
 import br.edu.imepac.comum.services.ProntuarioService;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -55,8 +55,9 @@ public class ProntuarioController {
      */
     @PostMapping // Mapeia requisições POST para /prontuarios
     public ResponseEntity<ProntuarioDto> createProntuario(@Valid @RequestBody ProntuarioRequest request) {
-        // Chama o serviço para criar um novo prontuário
-        ProntuarioDto createdProntuario = prontuarioService.create(request);
+        // *** CORREÇÃO APLICADA AQUI ***
+        // O nome do método no serviço é 'save', não 'create'.
+        ProntuarioDto createdProntuario = prontuarioService.save(request);
         // Retorna o prontuário criado com status 201 (Created)
         return ResponseEntity.status(HttpStatus.CREATED).body(createdProntuario);
     }

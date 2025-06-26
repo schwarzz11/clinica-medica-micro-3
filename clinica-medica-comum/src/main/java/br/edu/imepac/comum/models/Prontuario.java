@@ -1,40 +1,42 @@
 package br.edu.imepac.comum.models;
+
 import jakarta.persistence.*;
 import lombok.Data;
-import lombok.NoArgsConstructor;
-import lombok.AllArgsConstructor;
-
 import java.time.LocalDateTime;
 
 /**
- * Representa o prontuário médico de um paciente.
- * Contém informações como histórico médico, medicação atual e alergias.
+ * Representa o registro de um atendimento médico específico.
+ * Está diretamente ligado a uma consulta.
  */
 @Entity
 @Table(name = "prontuarios")
-@Data // Gera getters, setters, toString, equals e hashCode
-@NoArgsConstructor // Gera construtor sem argumentos
-@AllArgsConstructor // Gera construtor com todos os argumentos
+@Data
 public class Prontuario {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    // Relacionamento um-para-um com Consulta.
+    // Cada prontuário é o registro de uma única consulta.
+    @OneToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "consulta_id", nullable = false, unique = true)
+    private Consulta consulta;
+
+    @Column(columnDefinition = "TEXT")
+    private String receituario;
+
+    @Column(columnDefinition = "TEXT")
+    private String exames;
+
+    @Column(columnDefinition = "TEXT")
+    private String observacoes;
+
     @Column(name = "data_criacao", nullable = false)
     private LocalDateTime dataCriacao;
 
-    @Column(name = "historico_medico", columnDefinition = "TEXT")
-    private String historicoMedico;
-
-    @Column(name = "medicacao_atual", columnDefinition = "TEXT")
-    private String medicacaoAtual;
-
-    @Column(name = "alergias", columnDefinition = "TEXT")
-    private String alergias;
-
-    // Relacionamento ManyToOne com Paciente
-    // Um prontuário pertence a um único paciente.
-    @ManyToOne(fetch = FetchType.LAZY) // Carregamento preguiçoso para evitar busca desnecessária
-    @JoinColumn(name = "paciente_id", nullable = false) // Coluna da chave estrangeira na tabela prontuarios
-    private Paciente paciente;
+    @PrePersist
+    protected void onCreate() {
+        dataCriacao = LocalDateTime.now();
+    }
 }
