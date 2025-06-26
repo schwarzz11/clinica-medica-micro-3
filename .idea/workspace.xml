@@ -6,7 +6,7 @@
   <component name="ChangeListManager">
     <list default="true" id="bf63e5a7-e824-4912-afcd-e78d3351688e" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/collections/especialidades/delete" beforeDir="false" afterPath="$PROJECT_DIR$/collections/especialidades/delete" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/clinica-medica-comum/src/main/java/br/edu/imepac/comum/services/PerfilService.java" beforeDir="false" afterPath="$PROJECT_DIR$/clinica-medica-comum/src/main/java/br/edu/imepac/comum/services/PerfilService.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -37,7 +37,7 @@
   <component name="GithubPullRequestsUISettings">{
   &quot;selectedUrlAndAccountId&quot;: {
     &quot;url&quot;: &quot;https://github.com/schwarzz11/clinica-medica-micro-3.git&quot;,
-    &quot;accountId&quot;: &quot;a5417c70-b254-484a-bfa6-885b332cc7e2&quot;
+    &quot;accountId&quot;: &quot;7214ea3e-3567-45de-97e8-24bfe75ff585&quot;
   }
 }</component>
   <component name="HighlightingSettingsPerFile">
@@ -58,45 +58,46 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;Application.ClinicaMedicaAdministrativoApp.executor&quot;: &quot;Run&quot;,
-    &quot;Application.ClinicaMedicaAgendamentoApp.executor&quot;: &quot;Run&quot;,
-    &quot;Application.ClinicaMedicaAtendimentoApp.executor&quot;: &quot;Run&quot;,
-    &quot;Docker.containers.mysql: Compose Deployment.executor&quot;: &quot;Run&quot;,
-    &quot;Maven.clinica-medica [clean,install,-U].executor&quot;: &quot;Run&quot;,
-    &quot;Maven.clinica-medica [clean].executor&quot;: &quot;Run&quot;,
-    &quot;Maven.clinica-medica [install].executor&quot;: &quot;Run&quot;,
-    &quot;Maven.clinica-medica-agendamento [clean].executor&quot;: &quot;Run&quot;,
-    &quot;Maven.clinica-medica-agendamento [compile].executor&quot;: &quot;Run&quot;,
-    &quot;Maven.clinica-medica-agendamento [install].executor&quot;: &quot;Run&quot;,
-    &quot;Maven.clinica-medica-agendamento [package].executor&quot;: &quot;Run&quot;,
-    &quot;Maven.clinica-medica-comum [clean].executor&quot;: &quot;Run&quot;,
-    &quot;Maven.clinica-medica-comum [install].executor&quot;: &quot;Run&quot;,
-    &quot;RequestMappingsPanelOrder0&quot;: &quot;0&quot;,
-    &quot;RequestMappingsPanelOrder1&quot;: &quot;1&quot;,
-    &quot;RequestMappingsPanelWidth0&quot;: &quot;75&quot;,
-    &quot;RequestMappingsPanelWidth1&quot;: &quot;75&quot;,
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
-    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
-    &quot;jdk.selected.JAVA_MODULE&quot;: &quot;17&quot;,
-    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/lucel/OneDrive/Área de Trabalho/faculdade/aulas everton -  3ºPeriodo/codigos/clinica-medica-micro/clinica-medica-agendamento/src/main&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
-    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.47586206&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;project.propVCSSupport.Mappings&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Application.ClinicaMedicaAdministrativoApp.executor": "Run",
+    "Application.ClinicaMedicaAgendamentoApp.executor": "Run",
+    "Application.ClinicaMedicaAtendimentoApp.executor": "Run",
+    "Docker.containers.mysql: Compose Deployment.executor": "Run",
+    "Maven.clinica-medica [clean,install,-U].executor": "Run",
+    "Maven.clinica-medica [clean].executor": "Run",
+    "Maven.clinica-medica [install].executor": "Run",
+    "Maven.clinica-medica-agendamento [clean].executor": "Run",
+    "Maven.clinica-medica-agendamento [compile].executor": "Run",
+    "Maven.clinica-medica-agendamento [install].executor": "Run",
+    "Maven.clinica-medica-agendamento [package].executor": "Run",
+    "Maven.clinica-medica-comum [clean].executor": "Run",
+    "Maven.clinica-medica-comum [compile].executor": "Run",
+    "Maven.clinica-medica-comum [install].executor": "Run",
+    "RequestMappingsPanelOrder0": "0",
+    "RequestMappingsPanelOrder1": "1",
+    "RequestMappingsPanelWidth0": "75",
+    "RequestMappingsPanelWidth1": "75",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.git.unshallow": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "git-widget-placeholder": "master",
+    "jdk.selected.JAVA_MODULE": "17",
+    "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "C:/Users/User/OneDrive/Documentos/Faculdade/3° Periodo/Projeto integrador/clinica-medica-micro-3",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "project.structure.last.edited": "Modules",
+    "project.structure.proportion": "0.15",
+    "project.structure.side.proportion": "0.47586206",
+    "settings.editor.selected.configurable": "project.propVCSSupport.Mappings",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CreateClassDialog.RecentsKey">
       <recent name="br.edu.imepac.comum.exceptions" />
@@ -123,6 +124,12 @@
     </option>
   </component>
   <component name="RunManager" selected="Application.ClinicaMedicaAdministrativoApp">
+    <configuration default="true" type="docker-deploy" factoryName="docker-compose.yml" temporary="true">
+      <deployment type="docker-compose.yml">
+        <settings />
+      </deployment>
+      <method v="2" />
+    </configuration>
     <configuration name="ClinicaMedicaAdministrativoApp" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="br.edu.imepac.administrativo.ClinicaMedicaAdministrativoApp" />
       <module name="clinica-medica-administrativo" />
@@ -162,12 +169,6 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration default="true" type="docker-deploy" factoryName="docker-compose.yml" temporary="true">
-      <deployment type="docker-compose.yml">
-        <settings />
-      </deployment>
-      <method v="2" />
-    </configuration>
     <configuration name="containers: Compose Deployment" type="docker-deploy" factoryName="docker-compose.yml" temporary="true" server-name="Docker">
       <deployment type="docker-compose.yml">
         <settings>
@@ -193,16 +194,12 @@
       <item itemvalue="Application.ClinicaMedicaAdministrativoApp" />
       <item itemvalue="Application.ClinicaMedicaAgendamentoApp" />
       <item itemvalue="Application.ClinicaMedicaAtendimentoApp" />
-      <item itemvalue="Docker.containers: Compose Deployment" />
-      <item itemvalue="Docker.containers.mysql: Compose Deployment" />
     </list>
     <recent_temporary>
       <list>
         <item itemvalue="Application.ClinicaMedicaAdministrativoApp" />
         <item itemvalue="Application.ClinicaMedicaAgendamentoApp" />
         <item itemvalue="Application.ClinicaMedicaAtendimentoApp" />
-        <item itemvalue="Docker.containers.mysql: Compose Deployment" />
-        <item itemvalue="Docker.containers: Compose Deployment" />
       </list>
     </recent_temporary>
   </component>
