@@ -1,23 +1,23 @@
 package br.edu.imepac.comum.models;
 
 import jakarta.persistence.*;
-import jakarta.validation.constraints.NotBlank;
-import lombok.AllArgsConstructor;
 import lombok.Data;
-import lombok.NoArgsConstructor;
+import org.hibernate.annotations.SQLDelete;
+import org.hibernate.annotations.Where;
 
 @Data
-@AllArgsConstructor
-@NoArgsConstructor
 @Entity
 @Table(name = "especialidades")
+@SQLDelete(sql = "UPDATE especialidades SET ativo = false WHERE id = ?")
+@Where(clause = "ativo = true")
 public class Especialidade {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @NotBlank(message = "O nome da especialidade é obrigatório.")
     @Column(nullable = false, unique = true)
     private String nome;
+
+    private boolean ativo = true;
 }

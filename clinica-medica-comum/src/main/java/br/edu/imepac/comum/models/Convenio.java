@@ -1,15 +1,17 @@
 package br.edu.imepac.comum.models;
 
 import jakarta.persistence.*;
-import lombok.Getter; // Importe Getter
-import lombok.Setter; // Importe Setter
+import lombok.Getter;
+import lombok.Setter;
+import org.hibernate.annotations.SQLDelete;
+import org.hibernate.annotations.Where;
 
-// *** CORREÇÃO APLICADA AQUI ***
-// Substituímos @Data por @Getter e @Setter.
 @Getter
 @Setter
 @Entity
 @Table(name = "convenios")
+@SQLDelete(sql = "UPDATE convenios SET ativo = false WHERE id = ?")
+@Where(clause = "ativo = true")
 public class Convenio {
 
     @Id
@@ -28,5 +30,5 @@ public class Convenio {
     @Column(length = 20)
     private String telefone;
 
-
+    private boolean ativo = true;
 }

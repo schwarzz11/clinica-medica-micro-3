@@ -2,60 +2,55 @@ package br.edu.imepac.comum.models;
 
 import br.edu.imepac.comum.domain.EnumTipoFuncionario;
 import jakarta.persistence.*;
-import lombok.Data;
+import lombok.Getter;
+import lombok.Setter;
+import org.hibernate.annotations.SQLDelete;
+import org.hibernate.annotations.Where;
+
 import java.time.LocalDate;
 
-@Data
+@Getter
+@Setter
 @Entity
 @Table(name = "funcionarios")
+@SQLDelete(sql = "UPDATE funcionarios SET ativo = false WHERE id = ?")
+@Where(clause = "ativo = true")
 public class Funcionario {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(nullable = false, length = 255)
+    @Column(nullable = false)
     private String nome;
 
     @Column(nullable = false, unique = true, length = 11)
     private String cpf;
 
-    @Column(nullable = false, unique = true, length = 100)
+    @Column(nullable = false, unique = true)
     private String email;
 
-    @Column(nullable = false, length = 50, unique = true)
+    @Column(nullable = false, unique = true, length = 50)
     private String usuario;
 
-    @Column(nullable = false, length = 255)
-    private String senha; // Em produção, isto deve ser encriptado com BCrypt
+    @Column(nullable = false)
+    private String senha;
 
     private char sexo;
     private LocalDate dataNascimento;
-
-    @Column(length = 255)
     private String rua;
-
-    @Column(length = 10)
     private String numero;
-
-    @Column(length = 100)
     private String complemento;
-
-    @Column(length = 100)
     private String bairro;
-
-    @Column(length = 100)
     private String cidade;
-
-    @Column(length = 2)
     private String estado;
 
     @Enumerated(EnumType.STRING)
     private EnumTipoFuncionario tipoFuncionario;
 
-    // CORREÇÃO: Adicionando a relação com Perfil
-    // Um funcionário tem um perfil, e um perfil pode pertencer a muitos funcionários.
-    @ManyToOne(fetch = FetchType.EAGER) // Usamos EAGER para que o perfil seja carregado junto com o funcionário
+    @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "perfil_id")
     private Perfil perfil;
+
+    private boolean ativo = true;
 }
