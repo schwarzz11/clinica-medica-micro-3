@@ -1,64 +1,45 @@
 package br.edu.imepac.comum.services;
 
-import br.edu.imepac.comum.dtos.perfil.PerfilDto;
-import br.edu.imepac.comum.dtos.perfil.PerfilRequest;
+import br.edu.imepac.comum.exceptions.AuthenticationClinicaMedicaException;
+import br.edu.imepac.comum.models.Funcionario;
 import br.edu.imepac.comum.models.Perfil;
-import br.edu.imepac.comum.repositories.PerfilRepository;
+import br.edu.imepac.comum.repositories.FuncionarioRepository;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
-import org.mockito.MockitoAnnotations;
-import org.modelmapper.ModelMapper;
-
+import org.mockito.junit.jupiter.MockitoExtension;
+import java.util.Optional;
 import static org.junit.jupiter.api.Assertions.*;
-import static org.mockito.ArgumentMatchers.any;
-import static org.mockito.Mockito.*;
+import static org.mockito.Mockito.when;
 
+@ExtendWith(MockitoExtension.class)
 class PerfilServiceTest {
 
-    @Mock
-    private PerfilRepository perfilRepository;
+    @Mock private FuncionarioRepository funcionarioRepository;
+    @InjectMocks private PerfilService perfilService;
+    private Funcionario funcionario;
 
-    @Mock
-    private ModelMapper modelMapper;
-
-    @InjectMocks
-    private PerfilService perfilService;
-
-    @BeforeEach
-    void setUp() {
-        MockitoAnnotations.openMocks(this);
+    @BeforeEach void setUp() {
+        Perfil perfil = new Perfil();
+        perfil.setCadastrarPaciente(true);
+        funcionario = new Funcionario();
+        funcionario.setSenha("senhaCorreta");
+        funcionario.setPerfil(perfil);
     }
 
     @Test
-    void testSavePerfil() {
-        // Arrange
-        var request = new PerfilRequest();
-        request.setNome("ADMINISTRADOR");
-        request.setCadastrarFuncionario(true);
+    void testVerificarAutorizacao_Success() {
+        when(funcionarioRepository.findByUsuario("user")).thenReturn(Optional.of(funcionario));
+        assertTrue(perfilService.verificarAutorizacao("user", "senhaCorreta", "cadastrarPaciente"));
+    }
 
-        var perfil = new Perfil();
-        perfil.setId(1L);
-        perfil.setNome("ADMINISTRADOR");
-        perfil.setCadastrarFuncionario(true);
-
-        var dto = new PerfilDto();
-        dto.setId(1L);
-        dto.setNome("ADMINISTRADOR");
-        dto.setCadastrarFuncionario(true);
-
-        when(modelMapper.map(request, Perfil.class)).thenReturn(perfil);
-        when(perfilRepository.save(any(Perfil.class))).thenReturn(perfil);
-        when(modelMapper.map(perfil, PerfilDto.class)).thenReturn(dto);
-
-        // Act
-        PerfilDto result = perfilService.save(request);
-
-        // Assert
-        assertNotNull(result);
-        assertTrue(result.isCadastrarFuncionario());
-        assertEquals("ADMINISTRADOR", result.getNome());
-        verify(perfilRepository, times(1)).save(perfil);
+    @Test
+    void testVerificarAutorizacao_WrongPassword() {
+        when(funcionarioRepository.findByUsuario("user")).thenReturn(Optional.of(funcionario));
+        assertThrows(AuthenticationClinicaMedicaException.class, () -> {
+            perfilService.verificarAutorizacao("user", "senhaErrada", "cadastrarPaciente");
+        });
     }
 }

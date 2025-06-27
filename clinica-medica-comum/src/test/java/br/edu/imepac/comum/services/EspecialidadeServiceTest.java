@@ -2,65 +2,82 @@ package br.edu.imepac.comum.services;
 
 import br.edu.imepac.comum.dtos.especialidade.EspecialidadeDto;
 import br.edu.imepac.comum.dtos.especialidade.EspecialidadeRequest;
+import br.edu.imepac.comum.exceptions.ResourceNotFoundException;
 import br.edu.imepac.comum.models.Especialidade;
 import br.edu.imepac.comum.repositories.EspecialidadeRepository;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
-import org.mockito.Mockito;
-import org.mockito.MockitoAnnotations;
+import org.mockito.junit.jupiter.MockitoExtension;
 import org.modelmapper.ModelMapper;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.mockito.ArgumentMatchers.any;
-import static org.mockito.Mockito.when;
+import java.util.List;
+import java.util.Optional;
 
+import static org.junit.jupiter.api.Assertions.*;
+import static org.mockito.ArgumentMatchers.any;
+import static org.mockito.Mockito.*;
+
+@ExtendWith(MockitoExtension.class)
 class EspecialidadeServiceTest {
 
-    // **@Mock**: Cria objetos simulados (mocks) para as dependências.
-    // Esses mocks substituem as implementações reais, permitindo isolar a classe que está sendo testada.
-    @Mock
-    private ModelMapper modelMapper;
-
-    // **@Mock**: Cria objetos simulados (mocks) para as dependências.
-    // Esses mocks substituem as implementações reais, permitindo isolar a classe que está sendo testada.
     @Mock
     private EspecialidadeRepository especialidadeRepository;
-
-    // **@InjectMocks**: Injeta automaticamente os mocks criados nas dependências da classe que está sendo testada.
-    // Isso garante que a classe seja testada de forma isolada.
+    @Mock
+    private ModelMapper modelMapper;
     @InjectMocks
     private EspecialidadeService especialidadeService;
 
-    // **@BeforeEach**: Indica que este método será executado antes de cada caso de teste.
-    // Aqui, ele inicializa os mocks e prepara o ambiente de teste.
+    private EspecialidadeRequest especialidadeRequest;
+    private Especialidade especialidade;
+    private EspecialidadeDto especialidadeDto;
+
     @BeforeEach
     void setUp() {
-        // Inicializa os mocks anotados com @Mock e injeta-os nos campos anotados com @InjectMocks.
-        MockitoAnnotations.openMocks(this);
+        especialidadeRequest = new EspecialidadeRequest();
+        especialidadeRequest.setNome("Cardiologia");
+
+        especialidade = new Especialidade();
+        especialidade.setId(1L);
+        especialidade.setNome("Cardiologia");
+
+        especialidadeDto = new EspecialidadeDto();
+        especialidadeDto.setId(1L);
+        especialidadeDto.setNome("Cardiologia");
     }
 
-    // **@Test**: Marca este método como um caso de teste.
     @Test
-    void testAdicionarEspecialidade() {
-        // **Criação de mocks**: Simula instâncias das classes necessárias para o teste.
-        EspecialidadeRequest especialidadeRequest = Mockito.mock(EspecialidadeRequest.class);
-        EspecialidadeDto especialidadeDto = Mockito.mock(EspecialidadeDto.class);
-        Especialidade especialidade = Mockito.mock(Especialidade.class);
-
-        // **Definição de comportamento (stubbing)**: Configura o comportamento dos métodos simulados.
-        // Quando o método `map` do `modelMapper` for chamado, ele retornará o objeto `especialidade`.
+    void testSave() {
         when(modelMapper.map(especialidadeRequest, Especialidade.class)).thenReturn(especialidade);
         when(especialidadeRepository.save(any(Especialidade.class))).thenReturn(especialidade);
         when(modelMapper.map(especialidade, EspecialidadeDto.class)).thenReturn(especialidadeDto);
 
-        // **Ação (Act)**: Chama o método que está sendo testado.
-        EspecialidadeDto result = especialidadeService.adicionarEspecialidade(especialidadeRequest);
+        EspecialidadeDto result = especialidadeService.save(especialidadeRequest);
 
-        // **Verificação (Assert)**: Compara os resultados esperados com os resultados reais.
-        // Garante que o método produza os resultados corretos.
+        assertNotNull(result);
         assertEquals(especialidadeDto.getId(), result.getId());
-        assertEquals(especialidadeDto.getNome(), result.getNome());
+        verify(especialidadeRepository).save(especialidade);
+    }
+
+    @Test
+    void testFindById_NotFound() {
+        when(especialidadeRepository.findById(99L)).thenReturn(Optional.empty());
+        assertThrows(ResourceNotFoundException.class, () -> especialidadeService.findById(99L));
+    }
+
+    @Test
+    void testUpdate() {
+        when(especialidadeRepository.findById(1L)).thenReturn(Optional.of(especialidade));
+        when(especialidadeRepository.save(any(Especialidade.class))).thenReturn(especialidade);
+
+        EspecialidadeRequest updateRequest = new EspecialidadeRequest();
+        updateRequest.setNome("Cardiologia Clínica");
+
+        especialidadeService.update(1L, updateRequest);
+
+        verify(especialidadeRepository).save(especialidade);
+        assertEquals("Cardiologia Clínica", especialidade.getNome());
     }
 }

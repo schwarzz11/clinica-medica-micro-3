@@ -2,7 +2,7 @@ package br.edu.imepac.comum.services;
 
 import br.edu.imepac.comum.dtos.convenio.ConvenioDto;
 import br.edu.imepac.comum.dtos.convenio.ConvenioRequest;
-import br.edu.imepac.comum.exceptions.NotFoundClinicaMedicaException;
+import br.edu.imepac.comum.exceptions.ResourceNotFoundException; // Usando a exceção padronizada
 import br.edu.imepac.comum.models.Convenio;
 import br.edu.imepac.comum.repositories.ConvenioRepository;
 import org.modelmapper.ModelMapper;
@@ -28,26 +28,37 @@ public class ConvenioService {
     }
 
     public List<ConvenioDto> findAll() {
-        return convenioRepository.findAll().stream()
+        List<Convenio> convenios = convenioRepository.findAll();
+        return convenios.stream()
                 .map(convenio -> modelMapper.map(convenio, ConvenioDto.class))
                 .collect(Collectors.toList());
     }
 
     public ConvenioDto findById(Long id) {
-        // *** CORREÇÃO APLICADA AQUI ***
-        // Trocamos a exceção genérica 'RuntimeException' pela nossa exceção customizada.
-        // Agora, o comportamento da classe corresponde ao que o teste espera.
         Convenio convenio = convenioRepository.findById(id)
-                .orElseThrow(() -> new NotFoundClinicaMedicaException("Convênio não encontrado!"));
+                .orElseThrow(() -> new ResourceNotFoundException("Convênio não encontrado!"));
         return modelMapper.map(convenio, ConvenioDto.class);
     }
 
-    public ConvenioDto update(Long id, ConvenioRequest convenioRequest) {
+    // *** MÉTODO DE ATUALIZAÇÃO CORRIGIDO ***
+    // Esta implementação é mais robusta e garante que os campos sejam atualizados.
+    public ConvenioDto update(Long id, ConvenioRequest request) {
         Convenio convenioExistente = convenioRepository.findById(id)
-                .orElseThrow(() -> new NotFoundClinicaMedicaException("Convênio não encontrado!"));
+                .orElseThrow(() -> new ResourceNotFoundException("Convênio não encontrado para atualização."));
 
-        modelMapper.map(convenioRequest, convenioExistente);
-        convenioExistente.setId(id);
+        // Atualiza apenas os campos que não são nulos na requisição
+        if (request.getNomeEmpresa() != null) {
+            convenioExistente.setNomeEmpresa(request.getNomeEmpresa());
+        }
+        if (request.getCnpj() != null) {
+            convenioExistente.setCnpj(request.getCnpj());
+        }
+        if (request.getNomeContato() != null) {
+            convenioExistente.setNomeContato(request.getNomeContato());
+        }
+        if (request.getTelefone() != null) {
+            convenioExistente.setTelefone(request.getTelefone());
+        }
 
         Convenio updatedConvenio = convenioRepository.save(convenioExistente);
         return modelMapper.map(updatedConvenio, ConvenioDto.class);
@@ -55,8 +66,7 @@ public class ConvenioService {
 
     public void delete(Long id) {
         if (!convenioRepository.existsById(id)) {
-            // Aqui já estava correto, usando a exceção customizada.
-            throw new NotFoundClinicaMedicaException("Convênio não encontrado!");
+            throw new ResourceNotFoundException("Convênio não encontrado!");
         }
         convenioRepository.deleteById(id);
     }

@@ -2,7 +2,7 @@ package br.edu.imepac.comum.services;
 
 import br.edu.imepac.comum.dtos.paciente.PacienteDto;
 import br.edu.imepac.comum.dtos.paciente.PacienteRequest;
-import br.edu.imepac.comum.exceptions.NotFoundClinicaMedicaException;
+import br.edu.imepac.comum.exceptions.ResourceNotFoundException;
 import br.edu.imepac.comum.models.Convenio;
 import br.edu.imepac.comum.models.Paciente;
 import br.edu.imepac.comum.repositories.ConvenioRepository;
@@ -26,42 +26,21 @@ public class PacienteService {
     @Autowired
     private ModelMapper modelMapper;
 
+    private PacienteDto convertToDto(Paciente paciente) {
+        return modelMapper.map(paciente, PacienteDto.class);
+    }
+
     public PacienteDto save(PacienteRequest pacienteRequest) {
         Paciente paciente = modelMapper.map(pacienteRequest, Paciente.class);
 
         if (pacienteRequest.isPossuiConvenio() && pacienteRequest.getConvenioId() != null) {
             Convenio convenio = convenioRepository.findById(pacienteRequest.getConvenioId())
-                    .orElseThrow(() -> new NotFoundClinicaMedicaException("Convênio não encontrado"));
+                    .orElseThrow(() -> new ResourceNotFoundException("Convênio não encontrado"));
             paciente.setConvenio(convenio);
-        } else {
-            paciente.setConvenio(null);
         }
 
         Paciente savedPaciente = pacienteRepository.save(paciente);
         return convertToDto(savedPaciente);
-    }
-
-    public PacienteDto update(Long id, PacienteRequest request) {
-        Paciente pacienteExistente = pacienteRepository.findById(id)
-                .orElseThrow(() -> new NotFoundClinicaMedicaException("Paciente não encontrado"));
-
-        // O ModelMapper com 'setSkipNullEnabled(true)' irá agora atualizar apenas os campos enviados.
-        modelMapper.map(request, pacienteExistente);
-
-        // Se um novo convenioId for passado, atualiza a referência
-        if (request.getConvenioId() != null) {
-            Convenio convenio = convenioRepository.findById(request.getConvenioId())
-                    .orElseThrow(() -> new NotFoundClinicaMedicaException("Convênio não encontrado para atualização"));
-            pacienteExistente.setConvenio(convenio);
-        }
-
-        Paciente updatedPaciente = pacienteRepository.save(pacienteExistente);
-        return convertToDto(updatedPaciente);
-    }
-
-    private PacienteDto convertToDto(Paciente paciente) {
-        // Agora o ModelMapper sabe como fazer esta conversão sem erros.
-        return modelMapper.map(paciente, PacienteDto.class);
     }
 
     public List<PacienteDto> findAll() {
@@ -72,13 +51,29 @@ public class PacienteService {
 
     public PacienteDto findById(Long id) {
         Paciente paciente = pacienteRepository.findById(id)
-                .orElseThrow(() -> new NotFoundClinicaMedicaException("Paciente não encontrado"));
+                .orElseThrow(() -> new ResourceNotFoundException("Paciente não encontrado"));
         return convertToDto(paciente);
+    }
+
+    public PacienteDto update(Long id, PacienteRequest request) {
+        Paciente pacienteExistente = pacienteRepository.findById(id)
+                .orElseThrow(() -> new ResourceNotFoundException("Paciente não encontrado"));
+
+        modelMapper.map(request, pacienteExistente);
+
+        if (request.getConvenioId() != null) {
+            Convenio convenio = convenioRepository.findById(request.getConvenioId())
+                    .orElseThrow(() -> new ResourceNotFoundException("Convênio não encontrado para atualização"));
+            pacienteExistente.setConvenio(convenio);
+        }
+
+        Paciente updatedPaciente = pacienteRepository.save(pacienteExistente);
+        return convertToDto(updatedPaciente);
     }
 
     public void delete(Long id) {
         if (!pacienteRepository.existsById(id)) {
-            throw new NotFoundClinicaMedicaException("Paciente não encontrado");
+            throw new ResourceNotFoundException("Paciente não encontrado");
         }
         pacienteRepository.deleteById(id);
     }

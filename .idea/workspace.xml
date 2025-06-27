@@ -6,13 +6,19 @@
   <component name="ChangeListManager">
     <list default="true" id="bf63e5a7-e824-4912-afcd-e78d3351688e" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/clinica-medica-comum/src/main/java/br/edu/imepac/comum/models/Consulta.java" beforeDir="false" afterPath="$PROJECT_DIR$/clinica-medica-comum/src/main/java/br/edu/imepac/comum/models/Consulta.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/clinica-medica-comum/src/main/java/br/edu/imepac/comum/models/Convenio.java" beforeDir="false" afterPath="$PROJECT_DIR$/clinica-medica-comum/src/main/java/br/edu/imepac/comum/models/Convenio.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/clinica-medica-comum/src/main/java/br/edu/imepac/comum/models/Especialidade.java" beforeDir="false" afterPath="$PROJECT_DIR$/clinica-medica-comum/src/main/java/br/edu/imepac/comum/models/Especialidade.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/clinica-medica-comum/src/main/java/br/edu/imepac/comum/models/Funcionario.java" beforeDir="false" afterPath="$PROJECT_DIR$/clinica-medica-comum/src/main/java/br/edu/imepac/comum/models/Funcionario.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/clinica-medica-comum/src/main/java/br/edu/imepac/comum/models/Paciente.java" beforeDir="false" afterPath="$PROJECT_DIR$/clinica-medica-comum/src/main/java/br/edu/imepac/comum/models/Paciente.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/clinica-medica-comum/src/main/java/br/edu/imepac/comum/models/Perfil.java" beforeDir="false" afterPath="$PROJECT_DIR$/clinica-medica-comum/src/main/java/br/edu/imepac/comum/models/Perfil.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/clinica-medica-comum/src/main/java/br/edu/imepac/comum/models/Prontuario.java" beforeDir="false" afterPath="$PROJECT_DIR$/clinica-medica-comum/src/main/java/br/edu/imepac/comum/models/Prontuario.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/clinica-medica-comum/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/clinica-medica-comum/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/clinica-medica-comum/src/main/java/br/edu/imepac/comum/services/ConsultaService.java" beforeDir="false" afterPath="$PROJECT_DIR$/clinica-medica-comum/src/main/java/br/edu/imepac/comum/services/ConsultaService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/clinica-medica-comum/src/main/java/br/edu/imepac/comum/services/ConvenioService.java" beforeDir="false" afterPath="$PROJECT_DIR$/clinica-medica-comum/src/main/java/br/edu/imepac/comum/services/ConvenioService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/clinica-medica-comum/src/main/java/br/edu/imepac/comum/services/EspecialidadeService.java" beforeDir="false" afterPath="$PROJECT_DIR$/clinica-medica-comum/src/main/java/br/edu/imepac/comum/services/EspecialidadeService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/clinica-medica-comum/src/main/java/br/edu/imepac/comum/services/FuncionarioService.java" beforeDir="false" afterPath="$PROJECT_DIR$/clinica-medica-comum/src/main/java/br/edu/imepac/comum/services/FuncionarioService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/clinica-medica-comum/src/main/java/br/edu/imepac/comum/services/PacienteService.java" beforeDir="false" afterPath="$PROJECT_DIR$/clinica-medica-comum/src/main/java/br/edu/imepac/comum/services/PacienteService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/clinica-medica-comum/src/main/java/br/edu/imepac/comum/services/ProntuarioService.java" beforeDir="false" afterPath="$PROJECT_DIR$/clinica-medica-comum/src/main/java/br/edu/imepac/comum/services/ProntuarioService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/clinica-medica-comum/src/test/java/br/edu/imepac/comum/services/ConsultaServiceTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/clinica-medica-comum/src/test/java/br/edu/imepac/comum/services/ConsultaServiceTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/clinica-medica-comum/src/test/java/br/edu/imepac/comum/services/ConvenioServiceTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/clinica-medica-comum/src/test/java/br/edu/imepac/comum/services/ConvenioServiceTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/clinica-medica-comum/src/test/java/br/edu/imepac/comum/services/EspecialidadeServiceTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/clinica-medica-comum/src/test/java/br/edu/imepac/comum/services/EspecialidadeServiceTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/clinica-medica-comum/src/test/java/br/edu/imepac/comum/services/PacienteServiceTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/clinica-medica-comum/src/test/java/br/edu/imepac/comum/services/PacienteServiceTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/clinica-medica-comum/src/test/java/br/edu/imepac/comum/services/PerfilServiceTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/clinica-medica-comum/src/test/java/br/edu/imepac/comum/services/PerfilServiceTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/clinica-medica-comum/src/test/java/br/edu/imepac/comum/services/ProntuarioServiceTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/clinica-medica-comum/src/test/java/br/edu/imepac/comum/services/ProntuarioServiceTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -28,6 +34,7 @@
         <option value="Enum" />
         <option value="Interface" />
         <option value="Class" />
+        <option value="Exception" />
       </list>
     </option>
   </component>
@@ -74,8 +81,10 @@
     &quot;Application.ClinicaMedicaAtendimentoApp.executor&quot;: &quot;Run&quot;,
     &quot;Docker.containers.mysql: Compose Deployment.executor&quot;: &quot;Run&quot;,
     &quot;Docker.containers: Compose Deployment.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.ConsultaServiceTest.executor&quot;: &quot;Run&quot;,
     &quot;JUnit.ConsultaServiceTest.testSaveConsulta.executor&quot;: &quot;Run&quot;,
     &quot;JUnit.ConsultaServiceTest.testSaveConsulta_WhenPacienteNotFound_ShouldThrowException.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.ConsultaServiceTest.testUpdate_MedicoNotFound.executor&quot;: &quot;Run&quot;,
     &quot;JUnit.ConvenioServiceTest.executor&quot;: &quot;Run&quot;,
     &quot;JUnit.ConvenioServiceTest.testDeleteConvenio.executor&quot;: &quot;Run&quot;,
     &quot;JUnit.ConvenioServiceTest.testFindById_WhenFound.executor&quot;: &quot;Run&quot;,
@@ -83,6 +92,7 @@
     &quot;JUnit.ConvenioServiceTest.testSaveConvenio.executor&quot;: &quot;Run&quot;,
     &quot;JUnit.EspecialidadeServiceTest.executor&quot;: &quot;Run&quot;,
     &quot;JUnit.EspecialidadeServiceTest.testAdicionarEspecialidade.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.FuncionarioServiceTest.executor&quot;: &quot;Run&quot;,
     &quot;JUnit.PacienteServiceTest.executor&quot;: &quot;Run&quot;,
     &quot;JUnit.PacienteServiceTest.testSavePaciente_WithConvenio.executor&quot;: &quot;Run&quot;,
     &quot;JUnit.PacienteServiceTest.testSavePaciente_WithoutConvenio.executor&quot;: &quot;Run&quot;,
@@ -102,6 +112,9 @@
     &quot;Maven.clinica-medica-comum [clean].executor&quot;: &quot;Run&quot;,
     &quot;Maven.clinica-medica-comum [compile].executor&quot;: &quot;Run&quot;,
     &quot;Maven.clinica-medica-comum [install].executor&quot;: &quot;Run&quot;,
+    &quot;Maven.clinica-medica-comum [package].executor&quot;: &quot;Run&quot;,
+    &quot;Maven.clinica-medica-comum [validate].executor&quot;: &quot;Run&quot;,
+    &quot;Maven.clinica-medica-comum [verify].executor&quot;: &quot;Run&quot;,
     &quot;RequestMappingsPanelOrder0&quot;: &quot;0&quot;,
     &quot;RequestMappingsPanelOrder1&quot;: &quot;1&quot;,
     &quot;RequestMappingsPanelWidth0&quot;: &quot;75&quot;,
@@ -191,7 +204,7 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="ProntuarioServiceTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="ConsultaServiceTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="clinica-medica-comum" />
       <extension name="coverage">
         <pattern>
@@ -200,13 +213,13 @@
         </pattern>
       </extension>
       <option name="PACKAGE_NAME" value="br.edu.imepac.comum.services" />
-      <option name="MAIN_CLASS_NAME" value="br.edu.imepac.comum.services.ProntuarioServiceTest" />
+      <option name="MAIN_CLASS_NAME" value="br.edu.imepac.comum.services.ConsultaServiceTest" />
       <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="ProntuarioServiceTest.testSaveProntuario" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="ConvenioServiceTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="clinica-medica-comum" />
       <extension name="coverage">
         <pattern>
@@ -215,9 +228,8 @@
         </pattern>
       </extension>
       <option name="PACKAGE_NAME" value="br.edu.imepac.comum.services" />
-      <option name="MAIN_CLASS_NAME" value="br.edu.imepac.comum.services.ProntuarioServiceTest" />
-      <option name="METHOD_NAME" value="testSaveProntuario" />
-      <option name="TEST_OBJECT" value="method" />
+      <option name="MAIN_CLASS_NAME" value="br.edu.imepac.comum.services.ConvenioServiceTest" />
+      <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -232,16 +244,16 @@
       <item itemvalue="Application.ClinicaMedicaAdministrativoApp" />
       <item itemvalue="Application.ClinicaMedicaAgendamentoApp" />
       <item itemvalue="Application.ClinicaMedicaAtendimentoApp" />
-      <item itemvalue="JUnit.ProntuarioServiceTest" />
-      <item itemvalue="JUnit.ProntuarioServiceTest.testSaveProntuario" />
+      <item itemvalue="JUnit.ConsultaServiceTest" />
+      <item itemvalue="JUnit.ConvenioServiceTest" />
     </list>
     <recent_temporary>
       <list>
         <item itemvalue="Application.ClinicaMedicaAdministrativoApp" />
-        <item itemvalue="Application.ClinicaMedicaAtendimentoApp" />
         <item itemvalue="Application.ClinicaMedicaAgendamentoApp" />
-        <item itemvalue="JUnit.ProntuarioServiceTest.testSaveProntuario" />
-        <item itemvalue="JUnit.ProntuarioServiceTest" />
+        <item itemvalue="Application.ClinicaMedicaAtendimentoApp" />
+        <item itemvalue="JUnit.ConsultaServiceTest" />
+        <item itemvalue="JUnit.ConvenioServiceTest" />
       </list>
     </recent_temporary>
   </component>
